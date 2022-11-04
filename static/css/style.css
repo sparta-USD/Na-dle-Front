@@ -1,8 +1,11 @@
 /* style.css : 공용 스타일 파일 */
 /* reset */
-*{
-    
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+* {
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important;
+}
+body{
+    color: #fff;
 }
 .position-relative{
     position:relative
@@ -12,19 +15,16 @@ a, a:hover{
     text-decoration: unset;
 }
 
-
-
 /* header */
 header.header_sticky{
-    background: #fff;
+    background: rgba(0,0,0,1);
     position: fixed;
     top:0;
     left:0;
     width: 100%;
     z-index: 999;
-    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
-    border-bottom: 1px solid #e5e7eb;
-
+    box-shadow: 0 0 8px rgb(255 255 255 / 5%);
+    /* border-bottom: 1px solid #e5e7eb; */
 }
 
 header nav{
@@ -45,6 +45,10 @@ header nav ul.navbar_menu{
     -webkit-box-align: center;
     align-items: center;
     height: 60px;
+}
+header nav ul.navbar_menu button{
+    background: transparent;
+    border:0;
 }
 header nav ul.navbar_menu > li > a, header nav ul.navbar_menu > li > button, header nav ul.navbar_menu > li .dropdown>button{
     display: block;
@@ -74,10 +78,12 @@ header nav .my_profile img{
 /* wrap */
 .wrap{
     position: relative;;
-    background: rgb(250, 250, 250);
+    /* background: rgb(250, 250, 250); */
+    background: #121212;
     padding: 16px 0;
     min-height: calc(100vh - 112px);
     padding-top: 60px;
+    min-height: 100vh;
 }
 
 
@@ -86,7 +92,7 @@ header nav .my_profile img{
     width: 250px;
     /* height: 100%; */
     position: absolute;
-    background: #fff;
+    background: #2a2a2a;
     padding: 16px;
     right:0;
     top: 32px;
@@ -100,18 +106,41 @@ header nav .my_profile img{
 .sec{
     margin-bottom: 50px;
 }
+.sec .section_header{
+    margin-bottom: 32px;
+    text-align: center;
+}
 .sec .section_title{
     font-size: 1.5em;
     font-weight: 700;
-    margin-bottom: 32px;
-    text-align: center;
+    display: inline-block;
+}
+.highlight{
+    position: relative;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.highlight:before{
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0px;
+    height: 16px;
+    width: 0;
+    background-color: rgba(30,215,96,0.25);
+    transition: 0.4s;
+}
+.highlight:hover:before{
+    width: calc(100% + 4px);
+    transition: 0.2s;
 }
 
 /* music_card */
 .music_card{
-    background: #fff;
-    border: solid 1px rgb(219, 219, 219);
-    border-radius : 16px;
+    cursor: pointer;
+    background: #181818;
+    /* border: solid 1px rgb(219, 219, 219); */
+    border-radius : 8px;
     margin-bottom: 16px;
     line-height: 1.26;
     overflow: hidden;
@@ -120,12 +149,13 @@ header nav .my_profile img{
 
 }
 .music_card:hover{
-    box-shadow: 2px 5px 10px rgba(0,0,0,0.1);
+    /* box-shadow: 2px 5px 10px rgba(0,0,0,0.1); */
     transition: 0.4s;
+    background-color: #282828;
 }
 .music_card .card_header{
     margin-bottom: 16px;
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
 }
 .music_card .music_album_images{
@@ -137,17 +167,11 @@ header nav .my_profile img{
 }
 .music_card .card_content{
     width: 100%;
-
-    overflow: hidden;
-    white-space: normal;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    word-break: keep-all;
 }
 .music_card .card_content p{
     margin-bottom: 8px;
+}
+.music_card .card_content p.music_card_title{
     overflow: hidden;
     white-space: normal;
     text-overflow: ellipsis;
@@ -156,7 +180,14 @@ header nav .my_profile img{
     -webkit-box-orient: vertical;
     /* word-break: keep-all; */
 }
-.music_card .card_content .title{
+.music_card .card_content .music_card_title{
     font-weight: 600;
-    font-size:1.2em;
+    font-size : 1em;
+}
+.music_card .card_content .music_card_artist{
+    color: #a7a7a7;
+    font-size: 0.8em;
+}
+.music_card .card_content .music_card_grade{
+    color: #1ED760
 }
