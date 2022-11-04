@@ -7,8 +7,11 @@
 body{
     color: #fff;
 }
-.position-relative{
-    position:relative
+.flex{
+    display: flex;
+}
+.flex-align-center{
+    align-items: center;
 }
 a, a:hover{
     color: inherit;
@@ -90,10 +93,8 @@ header nav .my_profile img{
 /* sidenav */
 .sidenav{
     width: 250px;
-    /* height: 100%; */
+    min-height: 250px;
     position: absolute;
-    background: #2a2a2a;
-    padding: 16px;
     right:0;
     top: 32px;
 }
@@ -191,3 +192,83 @@ header nav .my_profile img{
 .music_card .card_content .music_card_grade{
     color: #1ED760
 }
+
+
+
+/* profile_list_card  */
+.profile_image{
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    flex: 0 0 auto;
+    overflow: hidden;
+    position: relative;
+    max-width: 64px;
+    max-height: 64px;
+}
+.profile_image>img{
+    width: 100%;
+    object-fit: cover;
+}
+.profile_list_card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    opacity: 0.7;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.profile_list_card:hover{
+    opacity: 1;
+    transition: 0.2s;
+}
+.profile_list_card .card_body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.profile_list_card .profile_image{
+    max-width: 28px;
+    max-height: 28px;
+}
+.profile_list_card .profile_meta{
+    width: 100%;
+    padding-left: 12px ;
+    line-height: 1.36;
+    font-size: 0.9em;
+}
+.profile_list_card .btn_follow{
+    color: #1ED760;
+    font-size: 0.9em;
+}
+
+
+/* 별점 */
+.starpoint_wrap{display:inline-block;margin-left: 4px;}
+.starpoint_box{position:relative;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 0 no-repeat; background-size: auto 34px; font-size:0;}
+.starpoint_box .starpoint_bg{display:block;position:absolute;top:0;left:0;height:16px;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 -18px no-repeat; background-size: auto 34px; pointer-events:none;}
+.starpoint_box .label_star{display:inline-block;width:8.85px;height:16px;box-sizing:border-box;}
+.starpoint_box .star_radio{opacity:0;width:0;height:0;position:absolute;}
+.star_10 .starpoint_bg, .starpoint_box .star_radio:nth-of-type(1):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(1):checked ~ .starpoint_bg{width:10%;}
+.star_20 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(2):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(2):checked ~ .starpoint_bg{width:20%;}
+.star_30 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(3):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(3):checked ~ .starpoint_bg{width:30%;}
+.star_40 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(4):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(4):checked ~ .starpoint_bg{width:40%;}
+.star_50 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(5):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(5):checked ~ .starpoint_bg{width:50%;}
+.star_60 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(6):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(6):checked ~ .starpoint_bg{width:60%;}
+.star_70 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(7):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(7):checked ~ .starpoint_bg{width:70%;}
+.star_80 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(8):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(8):checked ~ .starpoint_bg{width:80%;}
+.star_90 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(9):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(9):checked ~ .starpoint_bg{width:90%;}
+.star_100 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
+.blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
+
