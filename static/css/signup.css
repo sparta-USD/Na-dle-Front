@@ -1,0 +1,21 @@
+@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+
+    * { 
+        font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; 
+    }
+
+    .floating_form {
+        margin: 0px 30px;
+    }
+
+    .floating_label {
+        margin-top: -4px;
+        font-size: 14px;
+        color: gray;
+    }
+
+    .floating_input {
+        height: 50px !important;
+        padding-top: 20px !important;
+        font-size: 14px !important;
+    }
