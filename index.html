@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="profile_meta card_meta">
                                     <div class="profile_username">
-                                        <span class="username"> 유저 1</span>
+                                        <span class="username" id="username_1">matthewcoleman</span>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                         <h2 class="section_title highlight">이거 들을래?</h2>
                     </div>
                     <div class='music_list'>
-                        <div class="row">
+                        <div class="row"  id="recommend_musics_list">
                             <!-- card start -->
                             <div class="col-lg-3 col-md-4 col-6">
                                 <a href="#">
@@ -433,7 +433,7 @@
                         <h2 class="section_title highlight">NaDle Top 200</h2>
                     </div>
                     <div class='music_list'>
-                        <div class="row">
+                        <div class="row" id="all_musics_list">
                             <!-- card start -->
                             <div class="col-lg-3 col-md-4 col-6">
                                 <a href="#">
@@ -727,5 +727,132 @@
 
     </footer>
     <!-- JS 파일 -->
+    <script>
+        // $(document).ready();랑 동일한 뜻
+        document.addEventListener("DOMContentLoaded", function(){
+            console.log("로딩되었음")
+            handleMock()
+
+        });
+
+        async function handleMock(){
+            const response = await fetch('http://127.0.0.1:8000/musics/',{
+                headers: {
+                    // Authorization : access 키를 직접 넣어서 처리
+                    // 'content-type':'application/json',
+                    "Authorization":"Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NjE5MTg4LCJpYXQiOjE2Njc1NzU5ODgsImp0aSI6ImYyZDUyNmE0ZWE1ODRjOWE4NTUzOTFjZDhjZTA5MzQ0IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJtYXR0aGV3Y29sZW1hbiJ9.62riCaRmntv0z6sYuN-rl76rWfFC3Jni6FyC6GO7KlQ"
+                },
+                // body: JSON.stringify({
+                //     "username":"matthewcoleman",
+                //     "password":"1234"
+                // }),
+                method:'GET',
+            })
+            // response의 json 받아도기
+            const response_json = await response.json() 
+            // response 값 변수에 담기
+            let musics = response_json.musics 
+            let recommend_musics = response_json.recommend_musics
+            let recommend_users =response_json.recommend_users
+
+
+            // html 텍스트 가져오기
+
+
+            // 받은 json 데이터를 html에 뿌려주기
+            let recommend_musics_list = document.getElementById("recommend_musics_list")
+            recommend_musics_list.innerHTML='';
+            recommend_musics.forEach(element => {
+                let new_music_card = document.createElement('div');
+                new_music_card.className = 'col-lg-3 col-md-4 col-6';
+                new_music_card.innerHTML = `
+                                <a href="#">
+                                    <div class='music_card' id="music_${element['id']}">
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="${element['image']}">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">${element['title']}</span></p>
+                                                <p class="music_card_artist"><span class="artist">${element['artist']}</span></p>
+                                                <div class="music_card_grade">
+                                                    <span class="grade">5.0</span>
+                                                    <div class="starpoint_wrap">
+                                                        <div class="starpoint_box star_100">
+                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                          <span class="starpoint_bg"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                `;
+                recommend_musics_list.append(new_music_card);
+            });
+
+            let all_musics_list = document.getElementById("all_musics_list")
+            all_musics_list.innerHTML='';
+            musics.forEach(element => {
+                let new_music_card = document.createElement('div');
+                new_music_card.className = 'col-lg-3 col-md-4 col-6';
+                new_music_card.innerHTML = `
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="${element['image']}">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">${element['title']}</span></p>
+                                                <p class="music_card_artist"><span class="artist">${element['artist']}</span></p>
+                                                <div class="music_card_grade">
+                                                    <span class="grade">5.0</span>
+                                                    <div class="starpoint_wrap">
+                                                        <div class="starpoint_box star_100">
+                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                          <span class="starpoint_bg"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                `;
+                
+                all_musics_list.append(new_music_card)
+            });
+            
+
+            let grade_764= document.getElementById("music_764").querySelector(".grade").innerText
+            console.log(grade_764)
+        }
+
+
+    </script>
 </body>
 </html>
