@@ -106,15 +106,38 @@ header nav .my_profile img{
 .sec{
     margin-bottom: 50px;
 }
+.sec .section_header{
+    margin-bottom: 32px;
+    text-align: center;
+}
 .sec .section_title{
     font-size: 1.5em;
     font-weight: 700;
-    margin-bottom: 32px;
-    text-align: center;
+    display: inline-block;
+}
+.highlight{
+    position: relative;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.highlight:before{
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0px;
+    height: 16px;
+    width: 0;
+    background-color: rgba(30,215,96,0.25);
+    transition: 0.4s;
+}
+.highlight:hover:before{
+    width: calc(100% + 4px);
+    transition: 0.2s;
 }
 
 /* music_card */
 .music_card{
+    cursor: pointer;
     background: #181818;
     /* border: solid 1px rgb(219, 219, 219); */
     border-radius : 8px;
@@ -159,10 +182,11 @@ header nav .my_profile img{
 }
 .music_card .card_content .music_card_title{
     font-weight: 600;
-    font-size:1.2em;
+    font-size : 1em;
 }
 .music_card .card_content .music_card_artist{
     color: #a7a7a7;
+    font-size: 0.8em;
 }
 .music_card .card_content .music_card_grade{
     color: #1ED760

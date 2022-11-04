@@ -20,11 +20,11 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    <!-- 페이지별 css 추가 -->
 </head>
 <body>
     <header class="header_sticky">
@@ -52,7 +52,7 @@
                             </li>
                             <li class="navbar_item">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: white">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <div class="my_profile">
                                             <img src="/static/images/default_profile.png" alt="프로필">
                                         </div>
@@ -70,409 +70,174 @@
         </div>
     </header>
     <div class="wrap">
-
         <div class="container position-relative">
+            <!-- 여기 안에서 작업 -->
             <div class="sidenav">
                 <h1>사이드 nav</h1>
 
             </div>
             <div class='main'>
                 <section class='sec section_recommend_music'>
-                    <h2 class="section_title">이거 들을래?</h2>
+                    <div class="section_header">
+                        <h2 class="section_title highlight">이거 들을래?</h2>
+                    </div>
                     <div class='music_list'>
                         <div class="row">
+                            <!-- card start -->
                             <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <p class="music_card_grade">5.0 <span class="star_rating">*****</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title">Today's Top Hits Today's Top HitsToday's Top HitsToday's Top HitsToday's Top Hits</span></p>
-                                            <p><span class="artist">Rihanna</span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
+                                </a>
+                            </div>
+                            <!-- card end -->
+
+                            <div class="col-lg-3 col-md-4 col-6">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <p class="music_card_grade">5.0 <span class="star_rating">*****</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <p class="music_card_grade">5.0 <span class="star_rating">*****</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <p class="music_card_grade">5.0 <span class="star_rating">*****</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <p class="music_card_grade">5.0 <span class="star_rating">*****</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <p class="music_card_grade">5.0 <span class="star_rating">*****</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <p class="music_card_grade">5.0 <span class="star_rating">*****</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <p class="music_card_grade">5.0 <span class="star_rating">*****</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p class="music_card_title"><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p class="music_card_artist"><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p class="music_card_grade">5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </section>
                 <section class='sec section_recommend_music'>
-                    <h2 class="section_title">NaDle Top 200</h2>
+                    <div class="section_header">
+                        <h2 class="section_title highlight">NaDle Top 200</h2>
+                    </div>
                     <div class='music_list'>
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class='music_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p><span class="title"><a href="#">Today's Top Hits</a></span></p>
-                                            <p><span class="artist"><a href="#">Rihanna</a></span></p>
-                                            <p>5.0 <span class="star_rating">*****</span><p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </section>
             </div>
@@ -481,5 +246,6 @@
     <footer>
 
     </footer>
+    <!-- JS 파일 -->
 </body>
 </html>
