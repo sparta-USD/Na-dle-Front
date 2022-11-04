@@ -70,7 +70,6 @@ header nav .my_profile{
     height: 30px;
     border-radius: 50%;
 }
-
 header nav .my_profile img{
     width: 100%;
     height: 100%;
@@ -215,11 +214,13 @@ header nav .my_profile img{
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
-    opacity: 0.7;
     transition: 0.2s;
     cursor: pointer;
 }
-.profile_list_card:hover{
+.opcity7{
+    opacity: 0.7;
+}
+.profile_list_card.opcity7:hover{
     opacity: 1;
     transition: 0.2s;
 }
@@ -229,8 +230,8 @@ header nav .my_profile img{
     align-items: center;
 }
 .profile_list_card .profile_image{
-    max-width: 28px;
-    max-height: 28px;
+    max-width: 30px;
+    max-height: 30px;
 }
 .profile_list_card .profile_meta{
     width: 100%;
@@ -240,8 +241,23 @@ header nav .my_profile img{
 }
 .profile_list_card .btn_follow{
     color: #1ED760;
-    font-size: 0.9em;
 }
+.profile_list_card .btn_follow_2{
+    color: #000;
+    background: #1ED760;
+    border : solid 1px #1ED760;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+}
+.profile_list_card .btn_follow_remove{
+    color: #fff;
+    border : solid 1px #fff;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+}
+
 
 
 /* 별점 */
@@ -272,3 +288,13 @@ header nav .my_profile img{
 .starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
 .blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
 
+
+/* modal */
+.modal .modal-content{
+    background: #282828;
+}
+.modal .btn_close{
+    background: transparent;
+    color: #fff;
+    border: 0;
+}
