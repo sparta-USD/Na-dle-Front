@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     handleMock()
 });
 async function handleMock() {
-    const response = await fetch('http://127.0.0.1:8000/users/profile/1/', {
+    const response = await fetch('http://127.0.0.1:8000/users/profile/2/', {
         headers: {
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NjU0OTQ4LCJpYXQiOjE2Njc2MTE3NDgsImp0aSI6ImIxN2I1MTI5MDAwODRmMzM5NTg0MDcwZWNmMjMwYTgxIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.MTr-2f6F2DrxHiNhAe-VEMpYMg4iYOHJaz-ClXfdsTc"
+            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3Njk4NjgxLCJpYXQiOjE2Njc2NTU0ODEsImp0aSI6IjAwODU3ZTA5ZTk0MDQzN2RiZmJjZWUwMDljNGE3ZDcyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.ib8WZMikLVy46K6GhhF0t0NhFgzKpaMtrOiDWUhtd_Q"
         },
         method: 'GET',
     })
@@ -18,36 +18,29 @@ async function handleMock() {
     document.getElementById("email").value = user['email'];
     document.getElementById("profile_img").setAttribute("src","http://127.0.0.1:8000"+user['profile_image'])
 }
+
+
 document.getElementById("savebutton").addEventListener("click",function(){
     handleUpdate();
 
 });
 async function handleUpdate() {
-    let fullname = document.getElementById("fullname").value;
-    let username = document.getElementById("username").value;
-    let email = document.getElementById("email").value;
-    let fileField = document.querySelector('input[type="file"]').value;
-
-    // FormData에 저장
     const profile_formData = new FormData();
-    profile_formData.append("username",username);
+
+    let fullname = document.getElementById("fullname").value;
+    let email = document.getElementById("email").value;
+    let fileField = document.querySelector('input[type="file"]').files[0];
     profile_formData.append("fullname",fullname);
     profile_formData.append("email",email);
-    profile_formData.append("profile_image",fileField);
+    profile_formData.append("profile_image", fileField);
 
    const response = await fetch('http://127.0.0.1:8000/users/profile/2/', {
         headers: {
-            'content-type':'multipart/form-data;boundary=----WebKitFormBoundaryyEmKNDsBKjB7QEqu',
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NjU0OTQ4LCJpYXQiOjE2Njc2MTE3NDgsImp0aSI6ImIxN2I1MTI5MDAwODRmMzM5NTg0MDcwZWNmMjMwYTgxIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.MTr-2f6F2DrxHiNhAe-VEMpYMg4iYOHJaz-ClXfdsTc"
+            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3Njk4NjgxLCJpYXQiOjE2Njc2NTU0ODEsImp0aSI6IjAwODU3ZTA5ZTk0MDQzN2RiZmJjZWUwMDljNGE3ZDcyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.ib8WZMikLVy46K6GhhF0t0NhFgzKpaMtrOiDWUhtd_Q"
         },
         method: 'PUT',
         body: profile_formData,
     })
-    .then((response) => response.json())
-    .then((result) => {
-        console.log('성공:', result);
-    })
-    .catch((error) => {
-        console.error('실패:', error);
-    });
+    const response_json = await response.json();
+    console.log(response_json);
 }
