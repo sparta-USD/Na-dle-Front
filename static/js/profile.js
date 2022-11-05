@@ -6,19 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
 async function handleMock() {
     const response = await fetch('http://127.0.0.1:8000/users/profile/1/', {
         headers: {
-            // Authorization : access 키를 직접 넣어서 처리
-            // 'content-type':'application/json',
             "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NjU0OTQ4LCJpYXQiOjE2Njc2MTE3NDgsImp0aSI6ImIxN2I1MTI5MDAwODRmMzM5NTg0MDcwZWNmMjMwYTgxIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.MTr-2f6F2DrxHiNhAe-VEMpYMg4iYOHJaz-ClXfdsTc"
         },
-        // body: JSON.stringify({
-        //     "username":"matthewcoleman",
-        //     "password":"1234"
-        // }),
         method: 'GET',
     })
-    // response의 json 받아도기
     const response_json = await response.json()
-    // response 값 변수에 담기
     console.log(response_json)
     console.log(response_json.my_reviews)
     let user = response_json
