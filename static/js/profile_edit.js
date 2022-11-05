@@ -33,9 +33,9 @@ async function handleUpdate() {
     profile_formData.append("fullname",fullname);
     profile_formData.append("email",email);
     // 이미지 파일 예외처리
-    if (fileField!=undefined){
+    // if (fileField!=undefined){
         profile_formData.append("profile_image", fileField);
-    }
+    // }
     
 
    const response = await fetch('http://127.0.0.1:8000/users/profile/', {
@@ -45,6 +45,16 @@ async function handleUpdate() {
         method: 'PUT',
         body: profile_formData,
     })
-    const response_json = await response.json();
-    console.log(response_json);
+    .then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    }).then(result => {
+        alert("프로필이 수정되었습니다.")
+        document.getElementById("profile_img").setAttribute("src","http://127.0.0.1:8000"+result['profile_image'])
+    }).catch(error => {
+        alert("프로필 수정에 실패하였습니다.\n자세한 내용은 관리자에게 문의해주세요.")
+        console.warn(error.message)
+    });
 }
