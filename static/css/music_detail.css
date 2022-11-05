@@ -20,13 +20,7 @@
     width: 300px;
     height: 300px;
 }
-/* 
-.music_content{
-    border: 3px solid #1ED760;
-    width: 600px;
-    height: 300px;
 
-} */
 
 .btn_review_submit {
     margin-top: 30px;
@@ -56,12 +50,13 @@
     margin-top: 70px;
     
 }
+ 
 
-.accordion{
+.d-flex{
     width: 800px;
-    justify-content: center;
-    align-content: center;
 }
+
+
 
 
 
