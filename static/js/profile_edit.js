@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     handleMock()
 });
 async function handleMock() {
-    const response = await fetch('http://127.0.0.1:8000/users/profile/2/', {
+    const response = await fetch('http://127.0.0.1:8000/users/profile/', {
         headers: {
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3Njk4NjgxLCJpYXQiOjE2Njc2NTU0ODEsImp0aSI6IjAwODU3ZTA5ZTk0MDQzN2RiZmJjZWUwMDljNGE3ZDcyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.ib8WZMikLVy46K6GhhF0t0NhFgzKpaMtrOiDWUhtd_Q"
+            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NzA2MTgwLCJpYXQiOjE2Njc2NjI5ODAsImp0aSI6Ijk2NzUwOTIwMTVlZDRmZGFhNmY1ODM3YTgyYTJhOTQ4IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJtYXR0aGV3Y29sZW1hbiJ9.ysOWRJBhBW0ia5H8nBUTyxbvMhP3oAxUp6I6A37NOFY"
         },
         method: 'GET',
     })
@@ -34,9 +34,9 @@ async function handleUpdate() {
     profile_formData.append("email",email);
     profile_formData.append("profile_image", fileField);
 
-   const response = await fetch('http://127.0.0.1:8000/users/profile/2/', {
+   const response = await fetch('http://127.0.0.1:8000/users/profile/', {
         headers: {
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3Njk4NjgxLCJpYXQiOjE2Njc2NTU0ODEsImp0aSI6IjAwODU3ZTA5ZTk0MDQzN2RiZmJjZWUwMDljNGE3ZDcyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.ib8WZMikLVy46K6GhhF0t0NhFgzKpaMtrOiDWUhtd_Q"
+            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NzA2MTgwLCJpYXQiOjE2Njc2NjI5ODAsImp0aSI6Ijk2NzUwOTIwMTVlZDRmZGFhNmY1ODM3YTgyYTJhOTQ4IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJtYXR0aGV3Y29sZW1hbiJ9.ysOWRJBhBW0ia5H8nBUTyxbvMhP3oAxUp6I6A37NOFY"
         },
         method: 'PUT',
         body: profile_formData,
