@@ -32,7 +32,11 @@ async function handleUpdate() {
     let fileField = document.querySelector('input[type="file"]').files[0];
     profile_formData.append("fullname",fullname);
     profile_formData.append("email",email);
-    profile_formData.append("profile_image", fileField);
+    // 이미지 파일 예외처리
+    if (fileField!=undefined){
+        profile_formData.append("profile_image", fileField);
+    }
+    
 
    const response = await fetch('http://127.0.0.1:8000/users/profile/', {
         headers: {
