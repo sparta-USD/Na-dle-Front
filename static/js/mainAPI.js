@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(){
     handleMock()
 });
 async function handleMock(){
-    const response = await fetch('http://127.0.0.1:8000/musics/',{
+    const response = await fetch('http://127.0.0.1:8000/musics/recommend/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access")
         },
@@ -18,8 +18,8 @@ async function handleMock(){
 
     let recommend_user_list = document.getElementById("recommend_user_list")
     append_user_list(recommend_users,recommend_user_list)
-    let recommend_music_list = document.getElementById("recommend_musics_list").querySelector(".row")
-    append_music_list(recommend_musics,recommend_music_list)
+    let recommend_musics_list = document.getElementById("recommend_musics_list").querySelector(".row")
+    append_music_list(recommend_musics,recommend_musics_list)
     let all_music_list = document.getElementById("all_musics_list").querySelector(".row")
     append_music_list(musics,all_music_list)
 }
