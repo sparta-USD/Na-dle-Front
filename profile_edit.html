@@ -78,22 +78,22 @@
                 <div >
                     <div class="profile_section" style="display: inline-block;">
                         <div class="section_profile_box" style="margin-top: 50px; ">
-                            <img class="section_profile_img" src="/static/images/default_profile.png">
+                            <img class="section_profile_img" id="profile_img" src="/static/images/default_profile.png">
                         </div> 
                         <div style="margin-top: 15px; margin-bottom: 50px;">
                             <input id="profile" type="file" multiple style="width: 200px;">      
                         </div>
                         <div class="textbox">
-                            <input type="text" class="form-control" placeholder="이름">
+                            <input type="text" class="form-control" name="fullname" id="fullname" placeholder="이름">
                         </div>
                         <div class="textbox" >
-                            <input type="text" class="form-control" placeholder="아이디">
+                            <input type="text" class="form-control" name="username" id="username" placeholder="아이디">
                         </div>
                         <div class="textbox" >
-                            <input type="text" class="form-control" placeholder="이메일">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="이메일">
                         </div>
                         <button type="button" class="btn_profile_cancel btn btn-secondary" style="background-color:#121212; color: #ffff;" >Cancel</button>
-                        <button type="button" class="btn_profile_save btn btn-secondary" style=" margin-left:15px;"  >Save</button>
+                        <button type="button" class="btn_profile_save btn btn-secondary" style=" margin-left:15px;" id="savebutton"   >Save</button>
                     </div>
                 </div>
             </div>
