@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Na-dle</title>
+    <!-- 페이지 meta태그 -->
+    <meta name=”description” content=”페이지 설명”>
+    <meta name=”keywords” content=”페이지에,들어간,키워드,단어로,입력,구분은,쉼표로”>
+    <meta property="og:site_name" content="The Rock" />
+    <meta property="og:title" content="The Rock Content" />
+    <meta property="og:description" content="Sean Connery found fame and fortune as the suave, sophisticated British agent, James Bond." />	
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+    <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- 페이지별 css 추가 -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/profile_edit.css">
+</head>
+<body>
+    <header class="header_sticky">
+        <div class="container">
+            <nav>
+                <div class="flex">
+                    <div class="navbar_logo">
+                        <a href="/">Na-dle</a>
+                    </div>
+                    <div class="navbar_search">
+                        <ul>
+                            <li class="navbar_item">
+                                <a href="/">
+                                    Search
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar_nav">
+                        <ul class="navbar_menu">
+                            <li class="navbar_item">
+                                <a href="/">
+                                    전체 노래
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="my_profile">
+                                            <img src="/static/images/default_profile.png" alt="프로필">
+                                        </div>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <a class="dropdown-item" href='#'>내 프로필</a>
+                                        <a class="dropdown-item" href='#'>로그아웃</a>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="wrap">
+        <div class="container position-relative" style="text-align: center;">
+            <!-- 여기 안에서 작업 -->
+            <div class="profile_section" style="display: inline-block;">
+                <div class="section_profile_box" style="margin-top: 50px; ">
+                    <img class="section_profile_img" src="/static/images/default_profile.png">
+                </div> 
+                <div style="margin-top: 15px; margin-bottom: 50px;">
+                    <input id="profile" type="file" multiple style="width: 200px;">      
+                </div>
+                <div class="textbox">
+                    <input type="text" class="form-control" placeholder="이름">
+                </div>
+                <div class="textbox" >
+                    <input type="text" class="form-control" placeholder="아이디">
+                </div>
+                <div class="textbox" >
+                    <input type="text" class="form-control" placeholder="이메일">
+                </div>
+                <button type="button" class="btn_profile_cancel btn btn-secondary" style="background-color:#121212; color: #ffff;" >Cancel</button>
+                <button type="button" class="btn_profile_save btn btn-secondary" style=" margin-left:15px;"  >Save</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+    <!-- JS 파일 -->
+</body>
+</html>

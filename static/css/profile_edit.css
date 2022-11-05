@@ -1,0 +1,54 @@
+
+.section_profile_box {
+    width: 200px;
+    height: 200px;
+    border-radius: 70%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.section_profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.form-control:focus {
+    border-color: #A7A7A7;
+    box-shadow: 0 0 0 0.20rem #A7A7A7;
+}
+.form-control {
+    background-color: #ffffff; 
+    border-color: #ffffff; 
+    height: 55px;
+}
+.textbox {
+    width:400px; 
+    margin: 30px ;
+}
+.btn:first-child:hover, :not(.btn-check)+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+}
+.btn_profile_cancel.btn.btn-secondary {
+/* --bs-btn-color: #000000;
+--bs-btn-bg: #1ED760; */
+font-weight: 700;
+width: 110px; 
+height:50px; 
+margin-top:25px;
+}
+
+.btn_profile_save.btn.btn-secondary {
+--bs-btn-color: #000000;
+--bs-btn-bg: #1ED760;
+font-weight: 700;
+width: 110px; 
+height:50px; 
+margin-top:25px;
+}
+.btn:first-child:hover, :not(.btn-check)+.btn:hover {
+color: #000000;
+background-color: #1ED760;
+border-color: 0;
+}
