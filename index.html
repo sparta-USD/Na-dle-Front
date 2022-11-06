@@ -78,15 +78,15 @@
                     <div class="section_header">
                         <h2 class="section_title">너랑 취향이 비슷해 :)</h2>
                     </div>
-                    <div class="user_list">
-                        <div class="user_item profile_list_card">
+                    <div class="user_list" id="recommend_user_list">
+                        <div class="user_item profile_list_card visivility_hide">
                             <div class="card_body">
                                 <div class="profile_image">
                                     <img src="https://intermusicakorea.com/common/img/default_profile.png">
                                 </div>
                                 <div class="profile_meta card_meta">
                                     <div class="profile_username">
-                                        <span class="username"> 유저 1</span>
+                                        <span class="username" id="username_1">matthewcoleman</span>
                                     </div>
                                 </div>
                             </div>
@@ -96,14 +96,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="user_item profile_list_card">
+                        <div class="user_item profile_list_card visivility_hide">
                             <div class="card_body">
                                 <div class="profile_image">
                                     <img src="https://intermusicakorea.com/common/img/default_profile.png">
                                 </div>
                                 <div class="profile_meta card_meta">
                                     <div class="profile_username">
-                                        <span class="username"> 유저 1</span>
+                                        <span class="username" id="username_1">matthewcoleman</span>
                                     </div>
                                 </div>
                             </div>
@@ -113,14 +113,48 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="user_item profile_list_card">
+                        <div class="user_item profile_list_card visivility_hide">
                             <div class="card_body">
                                 <div class="profile_image">
                                     <img src="https://intermusicakorea.com/common/img/default_profile.png">
                                 </div>
                                 <div class="profile_meta card_meta">
                                     <div class="profile_username">
-                                        <span class="username"> 유저 1</span>
+                                        <span class="username" id="username_1">matthewcoleman</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card_footer">
+                                <div class="card_btn">
+                                    <a href="#" class="btn_follow">Follow</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user_item profile_list_card visivility_hide">
+                            <div class="card_body">
+                                <div class="profile_image">
+                                    <img src="https://intermusicakorea.com/common/img/default_profile.png">
+                                </div>
+                                <div class="profile_meta card_meta">
+                                    <div class="profile_username">
+                                        <span class="username" id="username_1">matthewcoleman</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card_footer">
+                                <div class="card_btn">
+                                    <a href="#" class="btn_follow">Follow</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user_item profile_list_card visivility_hide">
+                            <div class="card_body">
+                                <div class="profile_image">
+                                    <img src="https://intermusicakorea.com/common/img/default_profile.png">
+                                </div>
+                                <div class="profile_meta card_meta">
+                                    <div class="profile_username">
+                                        <span class="username" id="username_1">matthewcoleman</span>
                                     </div>
                                 </div>
                             </div>
@@ -132,18 +166,16 @@
                         </div>
                     </div>
                 </section>
-                
-
             </div>
             <div class='main'>
                 <section class='sec section_recommend_music'>
                     <div class="section_header">
                         <h2 class="section_title highlight">이거 들을래?</h2>
                     </div>
-                    <div class='music_list'>
+                    <div class='music_list' id="recommend_musics_list">
                         <div class="row">
                             <!-- card start -->
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
                                 <a href="#">
                                     <div class='music_card'>
                                         <div class="card_header list_profile">
@@ -179,8 +211,7 @@
                                 </a>
                             </div>
                             <!-- card end -->
-
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
                                 <a href="#">
                                     <div class='music_card'>
                                         <div class="card_header list_profile">
@@ -193,9 +224,9 @@
                                                 <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
                                                 <p class="music_card_artist"><span class="artist">Rihanna</span></p>
                                                 <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
+                                                    <span class="grade">3.5</span>
                                                     <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
+                                                        <div class="starpoint_box star_70">
                                                           <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                                           <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                                           <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
@@ -215,7 +246,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
                                 <a href="#">
                                     <div class='music_card'>
                                         <div class="card_header list_profile">
@@ -228,9 +259,9 @@
                                                 <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
                                                 <p class="music_card_artist"><span class="artist">Rihanna</span></p>
                                                 <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
+                                                    <span class="grade">3.5</span>
                                                     <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
+                                                        <div class="starpoint_box star_70">
                                                           <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                                           <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                                           <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
@@ -250,7 +281,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
                                 <a href="#">
                                     <div class='music_card'>
                                         <div class="card_header list_profile">
@@ -263,9 +294,9 @@
                                                 <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
                                                 <p class="music_card_artist"><span class="artist">Rihanna</span></p>
                                                 <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
+                                                    <span class="grade">3.5</span>
                                                     <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
+                                                        <div class="starpoint_box star_70">
                                                           <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                                           <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                                           <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
@@ -285,7 +316,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
                                 <a href="#">
                                     <div class='music_card'>
                                         <div class="card_header list_profile">
@@ -298,9 +329,9 @@
                                                 <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
                                                 <p class="music_card_artist"><span class="artist">Rihanna</span></p>
                                                 <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
+                                                    <span class="grade">3.5</span>
                                                     <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
+                                                        <div class="starpoint_box star_70">
                                                           <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                                           <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                                           <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
@@ -320,7 +351,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
                                 <a href="#">
                                     <div class='music_card'>
                                         <div class="card_header list_profile">
@@ -333,9 +364,9 @@
                                                 <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
                                                 <p class="music_card_artist"><span class="artist">Rihanna</span></p>
                                                 <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
+                                                    <span class="grade">3.5</span>
                                                     <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
+                                                        <div class="starpoint_box star_70">
                                                           <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                                           <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                                           <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
@@ -355,7 +386,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
                                 <a href="#">
                                     <div class='music_card'>
                                         <div class="card_header list_profile">
@@ -368,9 +399,9 @@
                                                 <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
                                                 <p class="music_card_artist"><span class="artist">Rihanna</span></p>
                                                 <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
+                                                    <span class="grade">3.5</span>
                                                     <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
+                                                        <div class="starpoint_box star_70">
                                                           <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                                           <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                                           <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
@@ -390,7 +421,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
                                 <a href="#">
                                     <div class='music_card'>
                                         <div class="card_header list_profile">
@@ -403,9 +434,184 @@
                                                 <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
                                                 <p class="music_card_artist"><span class="artist">Rihanna</span></p>
                                                 <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
+                                                    <span class="grade">3.5</span>
                                                     <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
+                                                        <div class="starpoint_box star_70">
+                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                          <span class="starpoint_bg"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <div class="music_card_grade">
+                                                    <span class="grade">3.5</span>
+                                                    <div class="starpoint_wrap">
+                                                        <div class="starpoint_box star_70">
+                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                          <span class="starpoint_bg"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <div class="music_card_grade">
+                                                    <span class="grade">3.5</span>
+                                                    <div class="starpoint_wrap">
+                                                        <div class="starpoint_box star_70">
+                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                          <span class="starpoint_bg"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <div class="music_card_grade">
+                                                    <span class="grade">3.5</span>
+                                                    <div class="starpoint_wrap">
+                                                        <div class="starpoint_box star_70">
+                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                          <span class="starpoint_bg"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <div class="music_card_grade">
+                                                    <span class="grade">3.5</span>
+                                                    <div class="starpoint_wrap">
+                                                        <div class="starpoint_box star_70">
+                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                          <span class="starpoint_bg"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-6 visivility_hide">
+                                <a href="#">
+                                    <div class='music_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="music_album_images">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                                <div class="music_card_grade">
+                                                    <span class="grade">3.5</span>
+                                                    <div class="starpoint_wrap">
+                                                        <div class="starpoint_box star_70">
                                                           <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                                           <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                                           <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
@@ -428,11 +634,11 @@
                         </div>
                     </div>
                 </section>
-                <section class='sec section_recommend_music'>
+                <section class='sec section_all_music'>
                     <div class="section_header">
                         <h2 class="section_title highlight">NaDle Top 200</h2>
                     </div>
-                    <div class='music_list'>
+                    <div class="music_list" id="all_musics_list">
                         <div class="row">
                             <!-- card start -->
                             <div class="col-lg-3 col-md-4 col-6">
@@ -471,252 +677,6 @@
                                 </a>
                             </div>
                             <!-- card end -->
-
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <a href="#">
-                                    <div class='music_card'>
-                                        <div class="card_header list_profile">
-                                            <div class="music_album_images">
-                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                            </div>
-                                        </div>
-                                        <div class="card_body">
-                                            <div class="card_content">
-                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
-                                                <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
-                                                    <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
-                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                                          <span class="starpoint_bg"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <a href="#">
-                                    <div class='music_card'>
-                                        <div class="card_header list_profile">
-                                            <div class="music_album_images">
-                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                            </div>
-                                        </div>
-                                        <div class="card_body">
-                                            <div class="card_content">
-                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
-                                                <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
-                                                    <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
-                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                                          <span class="starpoint_bg"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <a href="#">
-                                    <div class='music_card'>
-                                        <div class="card_header list_profile">
-                                            <div class="music_album_images">
-                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                            </div>
-                                        </div>
-                                        <div class="card_body">
-                                            <div class="card_content">
-                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
-                                                <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
-                                                    <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
-                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                                          <span class="starpoint_bg"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <a href="#">
-                                    <div class='music_card'>
-                                        <div class="card_header list_profile">
-                                            <div class="music_album_images">
-                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                            </div>
-                                        </div>
-                                        <div class="card_body">
-                                            <div class="card_content">
-                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
-                                                <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
-                                                    <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
-                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                                          <span class="starpoint_bg"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <a href="#">
-                                    <div class='music_card'>
-                                        <div class="card_header list_profile">
-                                            <div class="music_album_images">
-                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                            </div>
-                                        </div>
-                                        <div class="card_body">
-                                            <div class="card_content">
-                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
-                                                <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
-                                                    <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
-                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                                          <span class="starpoint_bg"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <a href="#">
-                                    <div class='music_card'>
-                                        <div class="card_header list_profile">
-                                            <div class="music_album_images">
-                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                            </div>
-                                        </div>
-                                        <div class="card_body">
-                                            <div class="card_content">
-                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
-                                                <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
-                                                    <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
-                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                                          <span class="starpoint_bg"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <a href="#">
-                                    <div class='music_card'>
-                                        <div class="card_header list_profile">
-                                            <div class="music_album_images">
-                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                            </div>
-                                        </div>
-                                        <div class="card_body">
-                                            <div class="card_content">
-                                                <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                                <p class="music_card_artist"><span class="artist">Rihanna</span></p>
-                                                <div class="music_card_grade">
-                                                    <span class="grade">5.0</span>
-                                                    <div class="starpoint_wrap">
-                                                        <div class="starpoint_box star_100">
-                                                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                                          <span class="starpoint_bg"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </section>
@@ -727,5 +687,6 @@
 
     </footer>
     <!-- JS 파일 -->
+    <script src="/static/js/mainAPI.js"></script>
 </body>
 </html>
