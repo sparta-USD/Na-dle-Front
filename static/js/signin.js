@@ -4,7 +4,7 @@ async function handleSignin() {
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
     
-    const response = await fetch("http://127.0.0.1:8000/users/api/token/",{
+    const response = await fetch("http://127.0.0.1:8000/users/signin/",{
         headers: {
             "content-type": "application/json",
         },
