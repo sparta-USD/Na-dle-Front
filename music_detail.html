@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Na-dle</title>
+    <!-- 페이지 meta태그 -->
+    <meta name=”description” content=”페이지 설명”>
+    <meta name=”keywords” content=”페이지에,들어간,키워드,단어로,입력,구분은,쉼표로”>
+    <meta property="og:site_name" content="The Rock" />
+    <meta property="og:title" content="The Rock Content" />
+    <meta property="og:description" content="Sean Connery found fame and fortune as the suave, sophisticated British agent, James Bond." />	
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+    <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="static/js/logout.js"></script>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- 페이지별 css 추가 -->
+    <link rel="stylesheet" href="/static/css/music_detail.css">
+
+</head>
+<body>
+    <header class="header_sticky">
+        <div class="container">
+            <nav>
+                <div class="flex">
+                    <div class="navbar_logo">
+                        <a href="/">Na-dle</a>
+                    </div>
+                    <div class="navbar_search">
+                        <ul>
+                            <li class="navbar_item">
+                                <a href="/">
+                                    Search
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar_nav">
+                        <ul class="navbar_menu">
+                            <li class="navbar_item">
+                                <a href="/">
+                                    전체 노래
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="my_profile">
+                                            <img src="/static/images/default_profile.png" alt="프로필">
+                                        </div>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <a class="dropdown-item" href='#'>내 프로필</a>
+                                        <a class="dropdown-item" href='#' onclick="handleLogout()">로그아웃</a>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="wrap">
+        <div class="container position-relative">
+            <!-- 여기 안에서 작업 -->
+            <div class='main' style="width:100%">
+                
+                <div class="container-2 text-center" id="music_detail">
+                    <div class="music_content row">
+                        <div class="col-md-4">
+                            <img src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" class="img-fluid rounded-start" alt="...">
+                            <br/>
+                            <h1 class="text-muted">가수 : Rihanna</h1>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review">
+                    <div class="section_review_header">
+                        <h2 class="write_review section_title highlight">리뷰를 작성해주세요 :)</h2>
+                        <input type="text" id="content" class="form-control" placeholder="내용">
+                        <br/>
+                        <input type="text" id="grade" class="form-control" placeholder="평점">
+                    </div>
+                    <div class="button_write">
+                        <button type="button" onclick="handleCreateReview()" class="btn_review_submit btn btn-success btn-lg">등록하기</button>
+                    </div>
+                </div>
+                
+                
+                
+                <section class='sec section_review_music' >
+                    <hr color = "#1ED760">
+                    <div class="section_header">
+                        <h2 class="section_title highlight">리뷰 목록</h2>
+                    </div>
+                    <ol class="list-group list-group-numbered" id="review_list">
+                        <li class="d-flex justify-content-between align-items-start mb-5">
+                            <div class="row">
+                                <div class="col-10">
+                                    <div class="fw-bold flex mb-1">
+                                        <span class="user">작성자</span> 
+                                        <div class="music_card_grade" style="margin-left: 16px;">
+                                            <span class="grade">3.5</span>
+                                            <div class="starpoint_wrap">
+                                                <div class="starpoint_box star_70">
+                                                <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                <span class="starpoint_bg"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review_card_content">
+                                        <p class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis impedit necessitatibus quod laboriosam quam quibusdam! Repellendus, et vel? Molestias cumque exercitationem recusandae adipisci nihil dignissimos reprehenderit tempora. Laudantium, dolor aliquid.</p>
+                                    </div>
+                                </div>
+                                <div class="col-2" style="text-align: right;">
+                                    <button type="button" class="btn-update btn btn-secondary btn-sm" class="btn_follower" data-bs-toggle="modal"data-bs-target="#ReviewModal">
+                                        수정
+                                   </button>
+                                   <button id="delete_button" type="button" onclick="handleDeleteReview()"class="btn-delete btn btn-secondary btn-sm">삭제</button>
+                                </div>
+                            </div>
+                        
+                        </li>
+                        <li class="d-flex justify-content-between align-items-start mb-5">
+                            <div class="row">
+                                <div class="col-10">
+                                    <div class="fw-bold flex mb-1">
+                                        <span class="user">작성자</span> 
+                                        <div class="music_card_grade" style="margin-left: 16px;">
+                                            <span class="grade">3.5</span>
+                                            <div class="starpoint_wrap">
+                                                <div class="starpoint_box star_70">
+                                                <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                <span class="starpoint_bg"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review_card_content">
+                                        <p class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis impedit necessitatibus quod laboriosam quam quibusdam! Repellendus, et vel? Molestias cumque exercitationem recusandae adipisci nihil dignissimos reprehenderit tempora. Laudantium, dolor aliquid.</p>
+                                    </div>
+                                </div>
+                                <div class="col-2" style="text-align: right;">
+                                    <button type="button" class="btn-update btn btn-secondary btn-sm" class="btn_follower" data-bs-toggle="modal"data-bs-target="#ReviewModal">
+                                        수정
+                                   </button>
+                                   <button id="delete_button" type="button" onclick="handleDeleteReview()"class="btn-delete btn btn-secondary btn-sm">삭제</button>
+                                </div>
+                            </div>
+                            <!-- <span class="badge bg-primary rounded-pill">별점</span> -->
+                        </li>
+                      </ol>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade moreModel" id="ReviewModal" tabindex="-1" aria-labelledby="followingModalLabel"aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 " id="followModalLabel">Review Edit</h1>
+                    <button type="button" class="btn_close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="review_form">
+                        <div class="form_review_content mb-3">
+                            <label for="input_review_content" class="form-label">내용 :</label>
+                            <textarea class="form-control" id="input_review_content" rows="3"></textarea>
+                        </div>
+                        <div class="form_review_grade">
+                            <label for="input_review_content" class="form-label">평점</label>
+                            <input type="text" id="input_review_grade" class="form-control" placeholder="평점">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary " onclick="handleUpdateReview()">Update</button>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+    <!-- JS 파일 -->
+    <script src="static/js/music_detail.js"></script>
+        
+</body>
+</html>

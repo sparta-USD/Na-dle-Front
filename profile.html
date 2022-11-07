@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,8 @@
     <meta name=”keywords” content=”페이지에,들어간,키워드,단어로,입력,구분은,쉼표로”>
     <meta property="og:site_name" content="The Rock" />
     <meta property="og:title" content="The Rock Content" />
-    <meta property="og:description" content="Sean Connery found fame and fortune as the suave, sophisticated British agent, James Bond." />	
+    <meta property="og:description"
+        content="Sean Connery found fame and fortune as the suave, sophisticated British agent, James Bond." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
     <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
@@ -19,15 +20,21 @@
     <meta property="og:image:height" content="630">
 
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="static/js/logout.js"></script>
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/profile.css">
     <!-- 페이지별 css 추가 -->
 </head>
+
 <body>
     <header class="header_sticky">
         <div class="container">
@@ -54,14 +61,15 @@
                             </li>
                             <li class="navbar_item">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
                                         <div class="my_profile">
                                             <img src="/static/images/default_profile.png" alt="프로필">
                                         </div>
                                     </button>
                                     <ul class="dropdown-menu">
                                         <a class="dropdown-item" href='#'>내 프로필</a>
-                                        <a class="dropdown-item" href='#'>로그아웃</a>
+                                        <a class="dropdown-item" href='#' onclick="handleLogout()">로그아웃</a>
                                     </ul>
                                 </div>
                             </li>
@@ -74,45 +82,57 @@
     <div class="wrap">
         <div class="container position-relative">
             <!-- 여기 안에서 작업 -->
-            <section class="sec section_profile mt-5">
-                <div class="profile_detail_card">
-                    <div class="profile_image_cover">
-                        <div class="profile_image">
-                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+            <div id="profile_user">
+                <!-- start -->
+                <section class="sec section_profile mt-5">
+                    <div class="profile_detail_card">
+                        <div class="profile_image_cover">
+                            <div class="profile_image">
+                                <img aria-hidden="false" draggable="false" loading="lazy"
+                                    src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                    data-testid="card-image" alt=""
+                                    class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                            </div>
+                        </div>
+                        <div class="profile_content">
+                            <div class="profile_username flex">
+                                <span class="username">Username</span>
+                                <a href="#" class="btn btn_edit_profile">Edit profile</a>
+                            </div>
+                            <div class="profile_follow">
+                                <button type="button" class="btn_follower" data-bs-toggle="modal"
+                                    data-bs-target="#followerModal">
+                                    <span class="followers">3</span> followers
+                                </button>
+                                <button type="button" class="btn_following" data-bs-toggle="modal"
+                                    data-bs-target="#followingModal">
+                                    <span class="following">6</span> following
+                                </button>
+                            </div>
+                            <div class="profile_fullname">
+                                <span class="fullname">LeeHyunji</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="profile_content">
-                        <div class="profile_username flex">
-                            <span class="username">Username</span>
-                            <a href="#" class="btn btn_edit_profile">Edit profile</a>
-                        </div>
-                        <div class="profile_follow">
-                            <button type="button" class="btn_follower" data-bs-toggle="modal" data-bs-target="#followerModal">
-                                <span class="followers">3</span> followers
-                            </button>
-                            <button type="button" class="btn_following" data-bs-toggle="modal" data-bs-target="#followingModal">
-                                <span class="following">6</span> following
-                            </button>
-                        </div>
-                        <div class="profile_fullname">
-                            <span class="fullname">LeeHyunji</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
+
             <section class='sec section_playlist'>
                 <div class="section_header">
                     <h2 class="section_title highlight">My PlayList</h2>
                 </div>
                 <div class='music_list'>
-                    <div class="row">
+                    <div class="row" id="user_music_reivew_list">
                         <!-- card start -->
                         <div class="col-lg-3 col-md-4 col-6">
                             <a href="#">
                                 <div class='music_card position-relative'>
                                     <div class="card_header list_profile">
                                         <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            <img aria-hidden="false" draggable="false" loading="lazy"
+                                                src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                                data-testid="card-image" alt=""
+                                                class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -123,16 +143,26 @@
                                                 <span class="grade">3.5</span>
                                                 <div class="starpoint_wrap">
                                                     <div class="starpoint_box star_70">
-                                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
                                                         <span class="starpoint_bg"></span>
                                                     </div>
                                                 </div>
@@ -141,7 +171,9 @@
                                     </div>
                                     <div class="music_card_hover">
                                         <div class="music_review_content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum porro, in inventore a, esse illo aliquid vel doloribus aliquam dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum
+                                                porro, in inventore a, esse illo aliquid vel doloribus aliquam
+                                                dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +186,10 @@
                                 <div class='music_card position-relative'>
                                     <div class="card_header list_profile">
                                         <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            <img aria-hidden="false" draggable="false" loading="lazy"
+                                                src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                                data-testid="card-image" alt=""
+                                                class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -165,16 +200,26 @@
                                                 <span class="grade">3.5</span>
                                                 <div class="starpoint_wrap">
                                                     <div class="starpoint_box star_70">
-                                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
                                                         <span class="starpoint_bg"></span>
                                                     </div>
                                                 </div>
@@ -183,7 +228,9 @@
                                     </div>
                                     <div class="music_card_hover">
                                         <div class="music_review_content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum porro, in inventore a, esse illo aliquid vel doloribus aliquam dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum
+                                                porro, in inventore a, esse illo aliquid vel doloribus aliquam
+                                                dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +241,10 @@
                                 <div class='music_card position-relative'>
                                     <div class="card_header list_profile">
                                         <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            <img aria-hidden="false" draggable="false" loading="lazy"
+                                                src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                                data-testid="card-image" alt=""
+                                                class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -205,16 +255,26 @@
                                                 <span class="grade">3.5</span>
                                                 <div class="starpoint_wrap">
                                                     <div class="starpoint_box star_70">
-                                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
                                                         <span class="starpoint_bg"></span>
                                                     </div>
                                                 </div>
@@ -223,48 +283,9 @@
                                     </div>
                                     <div class="music_card_hover">
                                         <div class="music_review_content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum porro, in inventore a, esse illo aliquid vel doloribus aliquam dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <a href="#">
-                                <div class='music_card position-relative'>
-                                    <div class="card_header list_profile">
-                                        <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                            <p class="music_card_artist"><span class="artist">Rihanna</span></p>
-                                            <div class="music_card_grade">
-                                                <span class="grade">3.5</span>
-                                                <div class="starpoint_wrap">
-                                                    <div class="starpoint_box star_70">
-                                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                                        <span class="starpoint_bg"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="music_card_hover">
-                                        <div class="music_review_content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum porro, in inventore a, esse illo aliquid vel doloribus aliquam dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum
+                                                porro, in inventore a, esse illo aliquid vel doloribus aliquam
+                                                dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -276,7 +297,10 @@
                                 <div class='music_card position-relative'>
                                     <div class="card_header list_profile">
                                         <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            <img aria-hidden="false" draggable="false" loading="lazy"
+                                                src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                                data-testid="card-image" alt=""
+                                                class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -287,16 +311,26 @@
                                                 <span class="grade">3.5</span>
                                                 <div class="starpoint_wrap">
                                                     <div class="starpoint_box star_70">
-                                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
                                                         <span class="starpoint_bg"></span>
                                                     </div>
                                                 </div>
@@ -305,7 +339,9 @@
                                     </div>
                                     <div class="music_card_hover">
                                         <div class="music_review_content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum porro, in inventore a, esse illo aliquid vel doloribus aliquam dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum
+                                                porro, in inventore a, esse illo aliquid vel doloribus aliquam
+                                                dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -317,7 +353,10 @@
                                 <div class='music_card position-relative'>
                                     <div class="card_header list_profile">
                                         <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            <img aria-hidden="false" draggable="false" loading="lazy"
+                                                src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                                data-testid="card-image" alt=""
+                                                class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -328,16 +367,26 @@
                                                 <span class="grade">3.5</span>
                                                 <div class="starpoint_wrap">
                                                     <div class="starpoint_box star_70">
-                                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
                                                         <span class="starpoint_bg"></span>
                                                     </div>
                                                 </div>
@@ -346,7 +395,9 @@
                                     </div>
                                     <div class="music_card_hover">
                                         <div class="music_review_content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum porro, in inventore a, esse illo aliquid vel doloribus aliquam dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum
+                                                porro, in inventore a, esse illo aliquid vel doloribus aliquam
+                                                dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -358,7 +409,10 @@
                                 <div class='music_card position-relative'>
                                     <div class="card_header list_profile">
                                         <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            <img aria-hidden="false" draggable="false" loading="lazy"
+                                                src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                                data-testid="card-image" alt=""
+                                                class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -369,16 +423,26 @@
                                                 <span class="grade">3.5</span>
                                                 <div class="starpoint_wrap">
                                                     <div class="starpoint_box star_70">
-                                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
                                                         <span class="starpoint_bg"></span>
                                                     </div>
                                                 </div>
@@ -387,7 +451,9 @@
                                     </div>
                                     <div class="music_card_hover">
                                         <div class="music_review_content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum porro, in inventore a, esse illo aliquid vel doloribus aliquam dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum
+                                                porro, in inventore a, esse illo aliquid vel doloribus aliquam
+                                                dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -399,7 +465,10 @@
                                 <div class='music_card position-relative'>
                                     <div class="card_header list_profile">
                                         <div class="music_album_images">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5" data-testid="card-image" alt="" class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                            <img aria-hidden="false" draggable="false" loading="lazy"
+                                                src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                                data-testid="card-image" alt=""
+                                                class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -410,16 +479,26 @@
                                                 <span class="grade">3.5</span>
                                                 <div class="starpoint_wrap">
                                                     <div class="starpoint_box star_70">
-                                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
                                                         <span class="starpoint_bg"></span>
                                                     </div>
                                                 </div>
@@ -428,7 +507,65 @@
                                     </div>
                                     <div class="music_card_hover">
                                         <div class="music_review_content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum porro, in inventore a, esse illo aliquid vel doloribus aliquam dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum
+                                                porro, in inventore a, esse illo aliquid vel doloribus aliquam
+                                                dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <a href="#">
+                                <div class='music_card position-relative'>
+                                    <div class="card_header list_profile">
+                                        <div class="music_album_images">
+                                            <img aria-hidden="false" draggable="false" loading="lazy"
+                                                src="https://i.scdn.co/image/ab67706f00000002381ef12e384968316222cbd5"
+                                                data-testid="card-image" alt=""
+                                                class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
+                                        </div>
+                                    </div>
+                                    <div class="card_body">
+                                        <div class="card_content">
+                                            <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
+                                            <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                            <div class="music_card_grade">
+                                                <span class="grade">3.5</span>
+                                                <div class="starpoint_wrap">
+                                                    <div class="starpoint_box star_70">
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
+                                                        <span class="starpoint_bg"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="music_card_hover">
+                                        <div class="music_review_content">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos ipsum
+                                                porro, in inventore a, esse illo aliquid vel doloribus aliquam
+                                                dignissimos dolorem rerum quia est soluta vitae corporis accusamus!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -439,12 +576,14 @@
             </section>
         </div>
     </div>
-    <div class="modal modal-sm fade moreModel" id="followerModal" tabindex="-1" aria-labelledby="followerModalLabel" aria-hidden="true">
+    <div class="modal modal-sm fade moreModel" id="followerModal" tabindex="-1" aria-labelledby="followerModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 " id="followModalLabel">Followers</h1>
-                    <button type="button" class="btn_close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="btn_close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body flex flex_column">
                     <div class="user_list w-100 h-100">
@@ -657,12 +796,14 @@
             </div>
         </div>
     </div>
-    <div class="modal modal-sm fade moreModel" id="followingModal" tabindex="-1" aria-labelledby="followingModalLabel" aria-hidden="true">
+    <div class="modal modal-sm fade moreModel" id="followingModal" tabindex="-1" aria-labelledby="followingModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 " id="followModalLabel">Followings</h1>
-                    <button type="button" class="btn_close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="btn_close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body flex flex_column">
                     <div class="user_list w-100">
@@ -727,5 +868,7 @@
 
     </footer>
     <!-- JS 파일 -->
+    <script src="static/js/profile.js"></script>
 </body>
+
 </html>
