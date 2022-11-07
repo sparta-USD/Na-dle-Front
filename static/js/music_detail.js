@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
-// url 불러오는 함수
+// url을 불러오는 함수
 function getParams(params){
     const url = window.location.href
     const urlParams = new URL(url).searchParams;
@@ -127,7 +127,7 @@ async function handleCreateReview() {
             alert(result['message']);
         }else{
             element = result;
-            alert("리뷰 작성 완료되었습니다.");
+            alert("리뷰 작성이 완료되었습니다! ");
             let review_list = document.getElementById("review_list");
             let new_review = document.createElement('li');
             new_review.className = 'review_card mb-5';
@@ -170,7 +170,7 @@ async function handleCreateReview() {
         }
         
     }).catch(error => {
-        alert("리뷰 작성에 실패하였습니다.\n자세한 내용은 관리자에게 문의해주세요.");
+        alert("리뷰는 ID당 한번만 작성할 수 있습니다!");
         console.warn(error.message);
     });
 }
@@ -191,12 +191,12 @@ async function handleDeleteReview(el) {
         }
         return response;
     }).then(async result => {
-        alert("리뷰가 삭제되었습니다.");
-        // 삭제 완료시 html review_card도 삭제
+        alert("리뷰가 삭제되었습니다!");
+        // 삭제 완료시 html의 리뷰 목록에서도 삭제되도록 
         remove_review = document.getElementById("review_"+review_id);
         remove_review.remove();
     }).catch(async error => {
-        alert("리뷰 삭제에 실패하였습니다.\n자세한 내용은 관리자에게 문의해주세요.");
+        alert("리뷰 삭제에 실패했습니다! \n자세한 내용은 관리자에게 문의해주세요!");
         console.warn(error.message);
     });
 }
@@ -235,7 +235,7 @@ async function handleUpdateReview() {
         return response.json()
     }).then(result => {
         $("#ReviewModal").modal("hide");
-        alert("리뷰가 수정되었습니다.");
+        alert("리뷰가 수정되었습니다!");
         
         // 수정된 내용 html에 다시 뿌려주기
         document.getElementById("review_"+review_id).querySelector(".content").innerText = result['content'];
@@ -256,7 +256,7 @@ async function handleUpdateReview() {
             </div>
         `        
     }).catch(error => {
-        alert("리뷰 수정에 실패하였습니다.\n자세한 내용은 관리자에게 문의해주세요.");
+        alert("리뷰 수정에 실패하였습니다! \n자세한 내용은 관리자에게 문의해주세요.");
         console.warn(error.message);
     });
 }
