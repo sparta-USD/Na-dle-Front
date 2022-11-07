@@ -9,7 +9,6 @@ async function handleMock() {
     const response = await fetch('http://127.0.0.1:8000/users/'+url_username, {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access")
-            // "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3ODIyMDUyLCJpYXQiOjE2Njc3Nzg4NTIsImp0aSI6ImI4Zjk1NjFmMGZhYTQzOTVhMjczZmI5N2I1NDJkMzJjIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJnaW5hdGF5bG9yIn0.HQlJZ2wrE9HaGRuIQ2B0fc6htyLJuoDSNVp3g9n4UA8"
         },
         method: 'GET',
     })
