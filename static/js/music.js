@@ -7,13 +7,25 @@ async function handleMock(){
             "Authorization":"Bearer " + localStorage.getItem("access")
         },
         method:'GET',
-    })
+    }).then(response => {
+        if(!response.ok){
+            if(response.status==401){
+                alert("로그인 유저만 접근 가능합니다.")
+                location.href="/signin.html";
+            }
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    }).then(result => {
+        const musics = result;
     
-    const response_json = await response.json()
-    let musics = response_json
-
-    let all_musics_list = document.getElementById("all_musics_list").querySelector(".row")
-    append_music_list(musics,all_musics_list)
+        let all_musics_list = document.getElementById("all_musics_list").querySelector(".row")
+        append_music_list(musics,all_musics_list)
+    }).catch(error => {
+        console.warn(error.message)
+    });
+    
+   
 }
 function append_music_list(dataset,element){
     element.innerHTML='';
