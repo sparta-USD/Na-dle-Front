@@ -2,65 +2,82 @@ document.addEventListener("DOMContentLoaded", function () {
     handleMock()
 
 });
-async function handleMock() {
+// url을 불러오는 함수
+function getParams(params){
     const url = window.location.href
     const urlParams = new URL(url).searchParams;
-    const url_username = urlParams.get('username');
+    const get_urlParams = urlParams.get(params);
+    return get_urlParams;
+}
+
+async function handleMock() {
+    
+    url_username = getParams("username");
+    if (url_username == undefined){
+        url_username = localStorage.getItem("username");
+    }
+
     const response = await fetch('http://127.0.0.1:8000/users/'+url_username, {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
-    })
-    const response_json = await response.json()
-    console.log(response_json)
-    console.log(response_json.my_reviews)
-    console.log(response_json.my_reviews.music)
-    let user = response_json
-    let user_music_review = response_json.my_reviews
+    }).then(response => {
+        if(!response.ok){
+            if(response.status==401){
+                alert("로그인 유저만 접근 가능합니다.")
+                location.href="/signin.html";
+            }
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    }).then(result => {    
+        const response_json = result;
+        let user = response_json
+        let user_music_review = response_json.my_reviews
 
 
-    let profile_user = document.getElementById("profile_user")
-    profile_user.innerHTML = '';
-    // console.log(profile_user)
-    let new_user_profile = document.createElement('div');
-    new_user_profile.className = 'sec section_profile mt-5';
-    new_user_profile.innerHTML = `
-    <div class="profile_detail_card">
-        <div class="profile_image_cover">
-            <div class="profile_image">
-                <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${user['profile_image']}">
+        let profile_user = document.getElementById("profile_user")
+        profile_user.innerHTML = '';
+        // console.log(profile_user)
+        let new_user_profile = document.createElement('div');
+        new_user_profile.className = 'sec section_profile mt-5';
+        new_user_profile.innerHTML = `
+        <div class="profile_detail_card">
+            <div class="profile_image_cover">
+                <div class="profile_image">
+                    <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${user['profile_image']}">
+                </div>
+            </div>
+            <div class="profile_content">
+                <div class="profile_username flex">
+                    <span class="username">${user['username']}</span>
+                    <a href="/profile_edit.html" class="btn btn_edit_profile">Edit profile</a>
+                </div>
+                <div class="profile_follow">
+                    <button type="button" class="btn_follower" data-bs-toggle="modal" data-bs-target="#followerModal">
+                        <span class="followers">3</span> followers
+                    </button>
+                    <button type="button" class="btn_following" data-bs-toggle="modal" data-bs-target="#followingModal">
+                        <span class="following">6</span> following
+                    </button>
+                </div>
+                <div class="profile_fullname">
+                    <span class="fullname">${user['fullname']}</span>
+                </div>
             </div>
         </div>
-        <div class="profile_content">
-            <div class="profile_username flex">
-                <span class="username">${user['username']}</span>
-                <a href="#" class="btn btn_edit_profile">Edit profile</a>
-            </div>
-            <div class="profile_follow">
-                <button type="button" class="btn_follower" data-bs-toggle="modal" data-bs-target="#followerModal">
-                    <span class="followers">3</span> followers
-                </button>
-                <button type="button" class="btn_following" data-bs-toggle="modal" data-bs-target="#followingModal">
-                    <span class="following">6</span> following
-                </button>
-            </div>
-            <div class="profile_fullname">
-                <span class="fullname">${user['fullname']}</span>
-            </div>
-        </div>
-    </div>
-    `;
-    profile_user.append(new_user_profile);
+        `;
+        profile_user.append(new_user_profile);
 
 
-let user_music_reivew_list = document.getElementById("user_music_reivew_list")
-    user_music_reivew_list.innerHTML='';
-    user_music_review.forEach(element => {
-        let new_user_music_review = document.createElement('div');
-        new_user_music_review.className = 'col-lg-3 col-md-4 col-6';
-        new_user_music_review.innerHTML = `
-                    <a href="#">
+        let user_music_reivew_list = document.getElementById("user_music_reivew_list")
+        user_music_reivew_list.innerHTML='';
+        user_music_review.forEach(element => {
+            let new_user_music_review = document.createElement('div');
+            new_user_music_review.className = 'col-lg-3 col-md-4 col-6';
+            new_user_music_review.innerHTML = `
+                    <a href="/music_detail.html?music=${element.music['id']}">
                         <div class='music_card position-relative'>
                             <div class="card_header list_profile">
                                 <div class="music_album_images">
@@ -113,6 +130,12 @@ let user_music_reivew_list = document.getElementById("user_music_reivew_list")
                     </a>
             `;
 
-        user_music_reivew_list.append(new_user_music_review)
-});
+            user_music_reivew_list.append(new_user_music_review)
+        });
+    }).catch(error => {
+        console.warn(error.message)
+    });
+
+
+    
 }
