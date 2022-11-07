@@ -13,7 +13,9 @@ function getParams(params){
 async function handleMock() {
     
     url_username = getParams("username");
+    is_me = false;
     if (url_username == undefined){
+        is_me = true;
         url_username = localStorage.getItem("username");
     }
 
@@ -36,6 +38,8 @@ async function handleMock() {
         let user = response_json
         let user_music_review = response_json.my_reviews
 
+        
+
         // 개인프로필
         let profile_user = document.getElementById("profile_user")
         profile_user.innerHTML = '';
@@ -51,7 +55,9 @@ async function handleMock() {
             <div class="profile_content">
                 <div class="profile_username flex">
                     <span class="username">${user['username']}</span>
-                    <a href="/profile_edit.html" class="btn btn_edit_profile">Edit profile</a>
+                    <div id="profile_btn_box">
+                        <a href="/profile_edit.html" class="btn btn_edit_profile">Edit profile</a>
+                    </div>
                 </div>
                 <div class="profile_follow">
                     <button type="button" class="btn_follower" data-bs-toggle="modal" data-bs-target="#followerModal">
@@ -132,6 +138,24 @@ async function handleMock() {
             user_music_reivew_list.append(new_user_music_review)
         });
 
+        // 
+        if(is_me){
+            console.log("edit")
+        }else{
+            current_login_user = JSON.parse(localStorage.getItem("payload"))['user_id']
+            is_follow = response_json['follower'].filter(function(e){ return e.pk==current_login_user;}).length
+            target = document.getElementById("profile_btn_box");
+            console.log(is_follow);
+
+            // target.innerHTML = ""
+            if(is_follow){
+                target.innerHTML = `<a href="#" class="btn btn_follow_remove btnFollow" onclick=handleFollow_other(${user['id']},this)>UnFollow</a>`;
+            }else{
+                target.innerHTML = `<a href="#" class="btn btn_follow_2 btnFollow" onclick=handleFollow_other(${user['id']},this)>Follow</a>`;
+            }            
+        }
+
+
         // 팔로워, 팔로잉
         const follower_modal = document.getElementById("followerModal").querySelector(".user_list");
         const follow_modal = document.getElementById("followModal").querySelector(".user_list");
@@ -159,7 +183,9 @@ function append_user_list(element,response_json,type,user_id,){
                 </div>
                 <div class="profile_meta card_meta">
                     <div class="profile_username">
-                        <span class="username">${data['username']}</span>
+                        <a href="/profile.html?username=${data['username']}">
+                            <span class="username">${data['username']}</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -172,8 +198,6 @@ function append_user_list(element,response_json,type,user_id,){
         element.append(new_item);
     });
 }
-
-
 async function handleFollow(follow_user_id,el){
     const response = await fetch(`http://127.0.0.1:8000/users/follow/${follow_user_id}/`,{
         headers: {
@@ -209,6 +233,29 @@ async function handleFollow(follow_user_id,el){
             changeFollowBtn(type,follower_user_item_btn);
             document.getElementById("follow_count").innerText = Number(document.getElementById("follow_count").innerText)-1;
         }
+    })
+    .catch(response => {
+        console.warn(response.error)
+    })
+};
+
+
+async function handleFollow_other(follow_user_id,el){
+    const response = await fetch(`http://127.0.0.1:8000/users/follow/${follow_user_id}/`,{
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+            "content-type":"application/json"
+        },
+        method:'POST',
+    }).then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        let type = result['result'];
+        changeFollowBtn(type,el);
     })
     .catch(response => {
         console.warn(response.error)
