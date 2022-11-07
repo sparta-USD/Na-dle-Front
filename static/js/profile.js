@@ -2,10 +2,21 @@ document.addEventListener("DOMContentLoaded", function () {
     handleMock()
 
 });
-async function handleMock() {
+// url을 불러오는 함수
+function getParams(params){
     const url = window.location.href
     const urlParams = new URL(url).searchParams;
-    const url_username = urlParams.get('username');
+    const get_urlParams = urlParams.get(params);
+    return get_urlParams;
+}
+
+async function handleMock() {
+    
+    url_username = getParams("music");
+    if (url_username == undefined){
+        url_username = localStorage.getItem("username");
+    }
+
     const response = await fetch('http://127.0.0.1:8000/users/'+url_username, {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access")
@@ -35,7 +46,7 @@ async function handleMock() {
         <div class="profile_content">
             <div class="profile_username flex">
                 <span class="username">${user['username']}</span>
-                <a href="#" class="btn btn_edit_profile">Edit profile</a>
+                <a href="/profile_edit.html" class="btn btn_edit_profile">Edit profile</a>
             </div>
             <div class="profile_follow">
                 <button type="button" class="btn_follower" data-bs-toggle="modal" data-bs-target="#followerModal">
@@ -60,7 +71,7 @@ let user_music_reivew_list = document.getElementById("user_music_reivew_list")
         let new_user_music_review = document.createElement('div');
         new_user_music_review.className = 'col-lg-3 col-md-4 col-6';
         new_user_music_review.innerHTML = `
-                    <a href="#">
+                    <a href="/music_detail.html?music=${element.music['id']}">
                         <div class='music_card position-relative'>
                             <div class="card_header list_profile">
                                 <div class="music_album_images">
