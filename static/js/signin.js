@@ -6,7 +6,7 @@ async function handleSignin() {
 
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
-
+    
 
     if (username === "" || password === "") {
         alert("빈칸을 채워주세요.")
@@ -24,7 +24,7 @@ async function handleSignin() {
         })
         console.log(response);
         const response_json = await response.json();
-        
+
         if (response.ok) {
             localStorage.setItem("access", response_json.access);
             localStorage.setItem("refresh", response_json.refresh);
@@ -35,8 +35,17 @@ async function handleSignin() {
                 return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
             }).join(""))
             localStorage.setItem("payload", jsonPayload);
-            alert("로그인 되었습니다.")
-            location.href = "http://127.0.0.1:5500/first_like.html";
+            const payload = localStorage.getItem("payload")
+            const payload_parse = JSON.parse(payload)
+            if (payload_parse.is_admin === false) {
+                alert("처음이시네요.")
+                location.href = "http://127.0.0.1:5500/first_like.html";
+            }
+            else {
+                alert("로그인 되었습니다.")
+                location.href = "http://127.0.0.1:5500/index.html";
+            }
+            
         } else {
             alert("아이디와 비밀번호를 확인해주세요.");
             console.warn(`${response.status} 에러가 발생했습니다.`);
