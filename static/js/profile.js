@@ -39,10 +39,10 @@ async function handleMock() {
             </div>
             <div class="profile_follow">
                 <button type="button" class="btn_follower" data-bs-toggle="modal" data-bs-target="#followerModal">
-                    <span class="followers">3</span> followers
+                    <span class="followers">${user['follower'].length}</span> followers
                 </button>
                 <button type="button" class="btn_following" data-bs-toggle="modal" data-bs-target="#followingModal">
-                    <span class="following">6</span> following
+                    <span class="following">${user['follow'].length}</span> following
                 </button>
             </div>
             <div class="profile_fullname">
