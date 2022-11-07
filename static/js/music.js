@@ -33,9 +33,9 @@ function append_music_list(dataset,element){
                                         <p class="music_card_title"><span class="title">${data['title']}</span></p>
                                         <p class="music_card_artist"><span class="artist">${data['artist']}</span></p>
                                         <div class="music_card_grade">
-                                            <span class="grade">5.0</span>
+                                            <span class="grade">${data['avg_grade']}</span>
                                             <div class="starpoint_wrap">
-                                                <div class="starpoint_box star_100">
+                                                <div class="starpoint_box star_${data['avg_grade']*20}">
                                                   <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                                   <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                                   <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
