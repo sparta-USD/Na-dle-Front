@@ -48,7 +48,7 @@ function append_user_list(dataset,element){
                         </div>
                         <div class="profile_meta card_meta">
                             <div class="profile_username">
-                                <a href="/profile.html?username=${data['username']}'>
+                                <a href="/profile.html?username=${data['username']}">
                                     <span class="username" id="username_1">${data['username']}</span>
                                 </a>
                             </div>
