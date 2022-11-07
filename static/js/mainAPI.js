@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(){
     handleMock()
 });
 async function handleMock(){
-    const response = await fetch('http://127.0.0.1:8000/musics/',{
+    const response = await fetch('http://127.0.0.1:8000/musics/recommend/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access")
         },
@@ -38,7 +38,9 @@ function append_user_list(dataset,element){
                         </div>
                         <div class="profile_meta card_meta">
                             <div class="profile_username">
-                                <span class="username" id="username_1">${data['username']}</span>
+                                <a href='/profile.html?username=${data['username']}>
+                                    <span class="username" id="username_1">${data['username']}</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +59,7 @@ function append_music_list(dataset,element){
         let new_item = document.createElement('div');
         new_item.className = 'col-lg-3 col-md-4 col-6';
         new_item.innerHTML = `
-                        <a href="#">
+                        <a href='/music_detail.html?music=${data['id']}'>
                             <div class='music_card' id="music_${data['id']}">
                                 <div class="card_header list_profile">
                                     <div class="music_album_images">
