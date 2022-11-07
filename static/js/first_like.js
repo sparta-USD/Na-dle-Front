@@ -68,7 +68,7 @@ async function handleStars(){
                 body: JSON.stringify({
                     "music":music,
                     "grade":grade,
-                    "content":" "
+                    "content":"."
                     })
                 })
                 .then(response => {
