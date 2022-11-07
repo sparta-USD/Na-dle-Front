@@ -67,17 +67,18 @@
                 <div >
                     <div class="profile_section" style="display: inline-block;">
                         <div class="section_profile_box" style="margin-top: 50px; ">
-                            <img class="section_profile_img" id="profile_img" src="/static/images/default_profile.png">
+                            <img class="section_profile_img" id="profile_img" src="/static/images/default_profile.png" onerror="this.src='/static/images/default_profile.png'">
                         </div> 
                         <div style="margin-top: 15px; margin-bottom: 50px;">
                             <input id="profile" type="file" multiple style="width: 200px;">      
                         </div>
+                        <div class="textbox" style="text-align: left; ">
+                            <p type="text" class="form-control" name="username" id="username" style="line-height: 43px; background-color: #A7A7A7; border-color: #A7A7A7;"></p>
+                        </div>
                         <div class="textbox">
                             <input type="text" class="form-control" name="fullname" id="fullname" placeholder="이름">
                         </div>
-                        <div class="textbox" >
-                            <input type="text" class="form-control" name="username" id="username" placeholder="아이디">
-                        </div>
+                        
                         <div class="textbox" >
                             <input type="text" class="form-control" name="email" id="email" placeholder="이메일">
                         </div>
