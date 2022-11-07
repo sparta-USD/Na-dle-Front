@@ -20,6 +20,7 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="static/js/logout.js"></script>
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
@@ -60,7 +61,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <a class="dropdown-item" href='#'>내 프로필</a>
-                                        <a class="dropdown-item" href='#'>로그아웃</a>
+                                        <a class="dropdown-item" href='#' onclick="handleLogout()">로그아웃</a>
                                     </ul>
                                 </div>
                             </li>
