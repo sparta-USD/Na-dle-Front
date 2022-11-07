@@ -15,86 +15,103 @@ function getParams(params){
 
 // 음원 상세 정보 불러오기
 async function handleMock(){
+
+    // url이 ?music="music_id" 형태로 입력되지 않았을 때 에러메세지 출력
     url_detail_music = getParams("music");
+    if (url_detail_music == undefined){
+        url_detail_music = localStorage.getItem("music");
+    }
+
     const response = await fetch('http://127.0.0.1:8000/musics/'+url_detail_music,{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
         method:'GET',
-    })
+    }).then(response => {
+        if(!response.ok){
+            if(response.status==404){
+                alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+                location.href="/index.html";
+            }
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    }).then(result => { 
+        
+        const response_json = result;
 
-    const response_json = await response.json() 
+        let music = response_json;
+        let review = response_json['reviews'];
+        
+        let music_detail = document.getElementById("music_detail");
+        music_detail.innerHTML='';
+        
+        let new_music = document.createElement('div');
+        new_music.className = 'sec section_recommend_music';
+        new_music.innerHTML = `
 
+        <div class="section_header" >
+            <h2 class="section_title highlight">TRACK # ${music['id']} </h2>
+        </div>
+        <div class="container-2 text-center">
+            <div class="music_content row">
+                <div class="col-md-4">
+                    <img src="${music['image']}" class="img-fluid rounded-start" alt="...">
 
-    let music = response_json;
-    let review = response_json['reviews'];
-    
-    let music_detail = document.getElementById("music_detail");
-    music_detail.innerHTML='';
-    
-    let new_music = document.createElement('div');
-    new_music.className = 'sec section_recommend_music';
-    new_music.innerHTML = `
-
-    <div class="section_header" >
-        <h2 class="section_title highlight">TRACK # ${music['id']} </h2>
-    </div>
-    <div class="container-2 text-center">
-        <div class="music_content row">
-            <div class="col-md-4">
-                <img src="${music['image']}" class="img-fluid rounded-start" alt="...">
-
-                <br/>
-                <h1 class="text">${music['artist']} - ${music['title']}</h1>
+                    <br/>
+                    <h1 class="text">${music['artist']} - ${music['title']}</h1>
+                </div>
             </div>
         </div>
-    </div>
-    `;
-    music_detail.append(new_music);
-   
+        `;
+        music_detail.append(new_music);
+    
 
-//  리뷰 목록 불러오기
-    let review_list = document.getElementById("review_list");
-    review_list.innerHTML='';
-    review.forEach(element => {
-        let new_review = document.createElement('li');
-        new_review.className = 'review_card mb-5';
-        new_review.id = 'review_'+element['id'];
-        new_review.innerHTML = `
-            <div class="row">
-                <div class="col-10">
-                    <div class="fw-bold flex mb-1">
-                        <span class="user">${element['user']}</span> 
-                        <div class="music_card_grade" style="margin-left: 16px;">
-                            <span class="grade">${element['grade']}</span>
-                            <div class="starpoint_wrap">
-                                <div class="starpoint_box star_${element['grade']*20}">
-                                    <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                    <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                    <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                    <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                    <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                    <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                    <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                    <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                    <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                    <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                    <span class="starpoint_bg"></span>
+    //  리뷰 목록 불러오기
+        let review_list = document.getElementById("review_list");
+        review_list.innerHTML='';
+        review.forEach(element => {
+            let new_review = document.createElement('li');
+            new_review.className = 'review_card mb-5';
+            new_review.id = 'review_'+element['id'];
+            new_review.innerHTML = `
+                <div class="row">
+                    <div class="col-10">
+                        <div class="fw-bold flex mb-1">
+                            <span class="user">${element['user']}</span> 
+                            <div class="music_card_grade" style="margin-left: 16px;">
+                                <span class="grade">${element['grade']}</span>
+                                <div class="starpoint_wrap">
+                                    <div class="starpoint_box star_${element['grade']*20}">
+                                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                        <span class="starpoint_bg"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="review_card_content">
+                            <p class="content">${element['content']}</p>
+                        </div>
                     </div>
-                    <div class="review_card_content">
-                        <p class="content">${element['content']}</p>
+                    <div class="col-2" style="text-align: right;">
+                        <button type="button" class="btn-update btn btn-secondary btn-sm" class="btn_follower" data-bs-toggle="modal"data-bs-target="#ReviewModal">수정</button>
+                        <button id="delete_button" type="button" onclick="handleDeleteReview(this)"class="btn-delete btn btn-secondary btn-sm">삭제</button>
                     </div>
                 </div>
-                <div class="col-2" style="text-align: right;">
-                    <button type="button" class="btn-update btn btn-secondary btn-sm" class="btn_follower" data-bs-toggle="modal"data-bs-target="#ReviewModal">수정</button>
-                    <button id="delete_button" type="button" onclick="handleDeleteReview(this)"class="btn-delete btn btn-secondary btn-sm">삭제</button>
-                </div>
-            </div>
-        `;
-    review_list.append(new_review);
+            `;
+        review_list.append(new_review);
+        });
+    }).catch(error => {
+        console.warn(error.message)
     });
 }
 
