@@ -14,7 +14,7 @@ async function handleMock() {
     let user = response_json;
 
     document.getElementById("fullname").value = user['fullname'];
-    document.getElementById("username").value =user['username'];
+    document.getElementById("username").innerHTML =user['username'];
     document.getElementById("email").value = user['email'];
     document.getElementById("profile_img").setAttribute("src","http://127.0.0.1:8000"+user['profile_image'])
 }
