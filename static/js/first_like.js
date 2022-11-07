@@ -68,7 +68,7 @@ async function handleStars(){
                 body: JSON.stringify({
                     "music":music,
                     "grade":grade,
-                    "content":"처음 왔어요!" //content blank=True??
+                    "content":" "
                     })
                 })
                 .then(response => {
