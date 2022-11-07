@@ -33,7 +33,7 @@ function append_music_list(dataset,element){
         let new_item = document.createElement('div');
         new_item.className = 'col-lg-3 col-md-4 col-6';
         new_item.innerHTML = `
-                        <a href="/music_detail.html?music_${data['id']}">
+                        <a href="/music_detail.html?music=${data['id']}">
                             <div class='music_card' id="music_${data['id']}">
                                 <div class="card_header list_profile">
                                     <div class="music_album_images">
