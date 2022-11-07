@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     handleMock()
 });
 async function handleMock() {
-    const response = await fetch('http://127.0.0.1:8000/users/profile/2/', {
+    const response = await fetch('http://127.0.0.1:8000/users/profile/', {
         headers: {
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3Njk4NjgxLCJpYXQiOjE2Njc2NTU0ODEsImp0aSI6IjAwODU3ZTA5ZTk0MDQzN2RiZmJjZWUwMDljNGE3ZDcyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.ib8WZMikLVy46K6GhhF0t0NhFgzKpaMtrOiDWUhtd_Q"
+            "Authorization":"Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
     })
@@ -34,13 +34,37 @@ async function handleUpdate() {
     profile_formData.append("email",email);
     profile_formData.append("profile_image", fileField);
 
-   const response = await fetch('http://127.0.0.1:8000/users/profile/2/', {
+   const response = await fetch('http://127.0.0.1:8000/users/profile/', {
         headers: {
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3Njk4NjgxLCJpYXQiOjE2Njc2NTU0ODEsImp0aSI6IjAwODU3ZTA5ZTk0MDQzN2RiZmJjZWUwMDljNGE3ZDcyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.ib8WZMikLVy46K6GhhF0t0NhFgzKpaMtrOiDWUhtd_Q"
+            "Authorization":"Bearer " + localStorage.getItem("access")
         },
         method: 'PUT',
         body: profile_formData,
     })
-    const response_json = await response.json();
-    console.log(response_json);
+    .then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    }).then(result => {
+        alert("프로필이 수정되었습니다.")
+        document.getElementById("profile_img").setAttribute("src","http://127.0.0.1:8000"+result['profile_image'])
+    }).catch(error => {
+        alert("프로필 수정에 실패하였습니다.\n자세한 내용은 관리자에게 문의해주세요.")
+        console.warn(error.message)
+    });
 }
+function readImage(input) {
+    if(input.files && input.files[0]) {
+        const reader = new FileReader()
+        reader.onload = e => {
+            const previewImage = document.getElementById("profile_img")
+            previewImage.src = e.target.result
+        }
+        reader.readAsDataURL(input.files[0])
+    }
+}
+const inputImage = document.getElementById("profile")
+inputImage.addEventListener("change", e => {
+    readImage(e.target)
+})

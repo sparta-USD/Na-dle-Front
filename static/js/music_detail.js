@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
+
 // url 불러오는 함수
 function getParams(params){
     const url = window.location.href
@@ -24,6 +25,7 @@ async function handleMock(){
 
     const response_json = await response.json() 
 
+
     let music = response_json;
     let review = response_json['reviews'];
     
@@ -33,6 +35,7 @@ async function handleMock(){
     let new_music = document.createElement('div');
     new_music.className = 'sec section_recommend_music';
     new_music.innerHTML = `
+
     <div class="section_header" >
         <h2 class="section_title highlight">TRACK # ${music['id']} </h2>
     </div>
@@ -40,6 +43,7 @@ async function handleMock(){
         <div class="music_content row">
             <div class="col-md-4">
                 <img src="${music['image']}" class="img-fluid rounded-start" alt="...">
+
                 <br/>
                 <h1 class="text">${music['artist']} - ${music['title']}</h1>
             </div>
