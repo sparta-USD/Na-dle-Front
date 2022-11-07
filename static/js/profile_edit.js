@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 async function handleMock() {
     const response = await fetch('http://127.0.0.1:8000/users/profile/', {
         headers: {
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NzA2MTgwLCJpYXQiOjE2Njc2NjI5ODAsImp0aSI6Ijk2NzUwOTIwMTVlZDRmZGFhNmY1ODM3YTgyYTJhOTQ4IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJtYXR0aGV3Y29sZW1hbiJ9.ysOWRJBhBW0ia5H8nBUTyxbvMhP3oAxUp6I6A37NOFY"
+            "Authorization":"Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
     })
@@ -32,15 +32,11 @@ async function handleUpdate() {
     let fileField = document.querySelector('input[type="file"]').files[0];
     profile_formData.append("fullname",fullname);
     profile_formData.append("email",email);
-    // 이미지 파일 예외처리
-    // if (fileField!=undefined){
-        profile_formData.append("profile_image", fileField);
-    // }
-    
+    profile_formData.append("profile_image", fileField);
 
    const response = await fetch('http://127.0.0.1:8000/users/profile/', {
         headers: {
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NzA2MTgwLCJpYXQiOjE2Njc2NjI5ODAsImp0aSI6Ijk2NzUwOTIwMTVlZDRmZGFhNmY1ODM3YTgyYTJhOTQ4IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJtYXR0aGV3Y29sZW1hbiJ9.ysOWRJBhBW0ia5H8nBUTyxbvMhP3oAxUp6I6A37NOFY"
+            "Authorization":"Bearer " + localStorage.getItem("access")
         },
         method: 'PUT',
         body: profile_formData,
@@ -58,3 +54,17 @@ async function handleUpdate() {
         console.warn(error.message)
     });
 }
+function readImage(input) {
+    if(input.files && input.files[0]) {
+        const reader = new FileReader()
+        reader.onload = e => {
+            const previewImage = document.getElementById("profile_img")
+            previewImage.src = e.target.result
+        }
+        reader.readAsDataURL(input.files[0])
+    }
+}
+const inputImage = document.getElementById("profile")
+inputImage.addEventListener("change", e => {
+    readImage(e.target)
+})
