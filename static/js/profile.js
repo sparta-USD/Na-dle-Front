@@ -12,7 +12,7 @@ function getParams(params){
 
 async function handleMock() {
     
-    url_username = getParams("music");
+    url_username = getParams("username");
     if (url_username == undefined){
         url_username = localStorage.getItem("username");
     }
