@@ -1,18 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("로딩되었음")
     handleMock()
 
 });
 async function handleMock() {
-    const response = await fetch('http://127.0.0.1:8000/users/profile/1/', {
+    const url = window.location.href
+    const urlParams = new URL(url).searchParams;
+    const url_username = urlParams.get('username');
+    const response = await fetch('http://127.0.0.1:8000/users/'+url_username, {
         headers: {
-            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NjU0OTQ4LCJpYXQiOjE2Njc2MTE3NDgsImp0aSI6ImIxN2I1MTI5MDAwODRmMzM5NTg0MDcwZWNmMjMwYTgxIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtb3JyaXNlbGl6YWJldGgifQ.MTr-2f6F2DrxHiNhAe-VEMpYMg4iYOHJaz-ClXfdsTc"
+            "Authorization":"Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
     })
     const response_json = await response.json()
     console.log(response_json)
     console.log(response_json.my_reviews)
+    console.log(response_json.my_reviews.music)
     let user = response_json
     let user_music_review = response_json.my_reviews
 
@@ -62,15 +65,15 @@ let user_music_reivew_list = document.getElementById("user_music_reivew_list")
                             <div class="card_header list_profile">
                                 <div class="music_album_images">
                                     <img aria-hidden="false" draggable="false" loading="lazy"
-                                        src="http://127.0.0.1:8000${user['profile_image']}"
+                                        src="${element.music['image']}"
                                         data-testid="card-image" alt=""
                                         class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj">
                                 </div>
                             </div>
                             <div class="card_body">
                                 <div class="card_content">
-                                    <p class="music_card_title"><span class="title">Today's Top Hits</span></p>
-                                    <p class="music_card_artist"><span class="artist">Rihanna</span></p>
+                                    <p class="music_card_title"><span class="title">${element.music['title']}</span></p>
+                                    <p class="music_card_artist"><span class="artist">${element.music['artist']}</span></p>
                                     <div class="music_card_grade">
                                         <span class="grade">${element['grade']}</span>
                                         <div class="starpoint_wrap">

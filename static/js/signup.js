@@ -3,14 +3,20 @@ window.onload = () => {
 }
 
 async function handleSignup() {
+
     const fullname = document.getElementById("fullname").value
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
     const password2 = document.getElementById("password2").value
-
-
-    if (password === password2) {
-        
+    
+    
+    if (fullname === "" || username === "" || password === "" || password2 === "") {
+        alert("빈칸을 채워주세요.")
+    }
+    else if (password !== password2) {
+            alert("비밀번호를 확인해주세요!")        
+    }
+    else {
         const response = await fetch("http://127.0.0.1:8000/users/signup/", {
             headers: {
                 "content-type": "application/json",
@@ -23,14 +29,13 @@ async function handleSignup() {
                 "password2": password2
             })
         })
-        alert("회원가입 되었습니다.")
-        location.href = "http://127.0.0.1:5500/login.html";
+        if(response.ok){
+            alert("회원가입 되었습니다.")
+            location.href = "http://127.0.0.1:5500/signin.html";
+        }else{
+            const response_json = await response.json()
+            alert(response_json.message);
+            console.warn(`${response.status} 에러가 발생했습니다.`)
+        }
     }
-    else {
-        alert("비밀번호를 확인해주세요!")
-
-    }
-
-
-
 }

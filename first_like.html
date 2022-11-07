@@ -25,7 +25,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/first_like.css">
+    <!-- <link rel="stylesheet" href="/static/css/first_like.css"> -->
 </head>
 <body>
     <header class="header_sticky">
@@ -71,15 +71,9 @@
         </div>
     </header>
     <div class="wrap">
-
         <div class="container position-relative">
-            <div class="sidenav">
-                <h1>사이드 nav</h1>
-
-            </div>
-            <div class='main'>
-                <section class='sec section_recommend_music'>
-                    <div>
+                <section class='sec section_recommend_music pt-5'>
+                    <div class="section_header">
                         <h2 class="section_title highlight">좋아하는 음악을 선택해주세요!</h2>
                     </div>
                     
@@ -388,7 +382,7 @@
                                                       <li><button class="dropdown-item" type="button">⭐️⭐️⭐️⭐️</button></li>
                                                       <li><button class="dropdown-item" type="button">⭐️⭐️⭐️⭐️⭐️</button></li>
                                                     </ul>
-                                                  </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -398,78 +392,14 @@
                         </div>
                     </div>
                 </section>
-                <div>
-                    <button type="button" class="btn btn-dark" style="float: right">선택완료</button>
+                <div class="text-center">
+                    <button onclick="handleStars()" type="button" class="btn btn-dark" id="submit">선택완료</button>
                 </div>
-            </div>
         </div>
     </div>
     <footer>
 
     </footer>
-    <!-- JS 파일 -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            console.log("로딩되었음")
-            handleMock()
-
-        });
-
-        async function handleMock(){
-            // url 변경해야함!!!
-            const response = await fetch('http://127.0.0.1:8000/',{
-                headers: {
-                    "Authorization":"Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NjYzNzEyLCJpYXQiOjE2Njc2MjA1MTIsImp0aSI6ImZlYTRjOTQ4MmE5YjQ0ZmY4ZDBjODAyNDk5NjdjY2IxIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJsYXJhYW5uYSJ9.CSRNHtW5sNcMd_iALKdBfG6kGWSGhLAiYhfezUvvtjs"
-                },
-                
-                method:'GET',
-            })
-            const response_json = await response.json() 
-            console.log(response_json)
-            let like_musics = response_json
-
-            // 받은 json 데이터를 html에 뿌려주기
-            let like_musics_list = document.getElementById("like_musics_list")
-            like_musics_list.innerHTML='';
-            console.log(like_musics_list);
-            like_musics.forEach(element => {
-                let new_like_musics = document.createElement('div');
-                new_like_musics.className = 'col-lg-3 col-md-4 col-6';
-                new_like_musics.innerHTML = `
-                                <a href="#">
-                                    <div class='music_card' id="music_${element['id']}">
-                                        <div class="card_header list_profile">
-                                            <div class="music_album_images">
-                                                <img aria-hidden="false" draggable="false" loading="lazy" src="${element['image']}">
-                                            </div>
-                                        </div>
-                                        <div class="card_body">
-                                            <div class="card_content">
-                                                <p class="music_card_title"><span class="title">${element['title']}</span></p>
-                                                <p class="music_card_artist"><span class="artist">${element['artist']}</span></p>
-                                                <div class="btn-group dropend">
-                                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                      평점⭐️
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-dark">
-                                                      <li><button class="dropdown-item" type="button">⭐️</button></li>
-                                                      <li><button class="dropdown-item" type="button">⭐️⭐️</button></li>
-                                                      <li><button class="dropdown-item" type="button">⭐️⭐️⭐️</button></li>
-                                                      <li><button class="dropdown-item" type="button">⭐️⭐️⭐️⭐️</button></li>
-                                                      <li><button class="dropdown-item" type="button">⭐️⭐️⭐️⭐️⭐️</button></li>
-                                                    </ul>
-                                                  </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                `;
-                like_musics_list.append(new_like_musics);
-            });
-            
-            let grade_764= document.getElementById("music_764").querySelector(".grade").innerText
-            console.log(grade_764)
-        }
-   </script>
+    <script src="static/js/first_like.js"></script>
 </body>
 </html>
