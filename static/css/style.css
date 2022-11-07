@@ -252,6 +252,9 @@ header nav .my_profile img{
     border-radius: 4px;
     padding: 4px 8px;
     font-size: 0.8em;
+    text-align: center;
+    min-width: 75px;
+    display: inline-block;
 }
 .profile_list_card .btn_follow_remove{
     color: #fff;
@@ -259,6 +262,9 @@ header nav .my_profile img{
     border-radius: 4px;
     padding: 4px 8px;
     font-size: 0.8em;
+    text-align: center;
+    min-width: 75px;
+    display: inline-block;
 }
 
 
