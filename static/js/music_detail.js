@@ -15,7 +15,7 @@ function getParams(params){
 
 // 음원 상세 정보 불러오기
 async function handleMock(){
-
+    
     // url이 ?music="music_id" 형태로 입력되지 않았을 때 에러메세지 출력
     url_detail_music = getParams("music");
     if (url_detail_music == undefined){
@@ -29,7 +29,11 @@ async function handleMock(){
         method:'GET',
     }).then(response => {
         if(!response.ok){
-            if(response.status==404){
+            if(response.status==401){
+                alert("로그인한 유저만 접근 가능합니다! 로그인해주세요 :)")
+                location.href="/signin.html";
+            }
+            else if(response.status==404){
                 alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
                 location.href="/index.html";
             }
@@ -42,7 +46,7 @@ async function handleMock(){
 
         let music = response_json;
         let review = response_json['reviews'];
-        
+
         let music_detail = document.getElementById("music_detail");
         music_detail.innerHTML='';
         
@@ -57,9 +61,25 @@ async function handleMock(){
             <div class="music_content row">
                 <div class="col-md-4">
                     <img src="${music['image']}" class="img-fluid rounded-start" alt="...">
-
-                    <br/>
                     <h1 class="text">${music['artist']} - ${music['title']}</h1>
+                    <div class="music_card_grade">
+                        <span class="grade">${music['avg_grade']}</span>
+                        <div class="starpoint_wrap">
+                            <div class="starpoint_box star_${music['avg_grade']*20}">
+                                <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                <span class="starpoint_bg"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

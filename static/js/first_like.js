@@ -87,3 +87,24 @@ async function handleStars(){
     };
 
 };
+
+async function firstTime(){
+    const payload = localStorage.getItem("payload")
+    const payload_parse = JSON.parse(payload)
+    console.log(payload_parse)
+    let user_id = payload_parse.user_id
+    const response = await fetch('http://127.0.0.1:8000/users/first/'+user_id+'/', {
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+            "content-type": "application/json",
+        },
+        method: 'PATCH',
+        body: JSON.stringify({
+            "is_admin" : 1,
+            
+        })
+
+    })
+
+
+}
