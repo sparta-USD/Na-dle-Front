@@ -253,6 +253,14 @@ header nav .my_profile img{
     padding: 4px 8px;
     font-size: 0.8em;
 }
+.profile_list_card .btn_follow_2.btn_following{
+    color: #fff;
+    background: #a7a7a7;
+    border : solid 1px #a7a7a7;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+}
 .profile_list_card .btn_follow_remove{
     color: #fff;
     border : solid 1px #fff;
