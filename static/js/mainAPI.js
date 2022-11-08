@@ -1,4 +1,4 @@
-adocument.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(){
     handleMock()
 });
 async function handleMock(){
