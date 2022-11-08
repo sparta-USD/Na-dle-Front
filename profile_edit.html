@@ -20,6 +20,7 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="static/js/logout.js"></script>
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
@@ -36,34 +37,22 @@
                     <div class="navbar_logo">
                         <a href="/">Na-dle</a>
                     </div>
-                    <div class="navbar_search">
-                        <ul>
-                            <li class="navbar_item">
-                                <a href="/">
-                                    Search
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="navbar_nav">
                         <ul class="navbar_menu">
                             <li class="navbar_item">
-                                <a href="/">
-                                    전체 노래
+                                <a href="/music_list.html">
+                                    All Music
                                 </a>
                             </li>
                             <li class="navbar_item">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <div class="my_profile">
-                                            <img src="/static/images/default_profile.png" alt="프로필">
-                                        </div>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <a class="dropdown-item" href='#'>내 프로필</a>
-                                        <a class="dropdown-item" href='#'>로그아웃</a>
-                                    </ul>
-                                </div>
+                                <a href="/profile.html">
+                                    My Profile
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <a href="#" onclick="handleLogout()">
+                                    Sign out
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -74,30 +63,38 @@
     <div class="wrap">
         <div class="container position-relative" style="text-align: center;">
             <!-- 여기 안에서 작업 -->
-            <div class="profile_section" style="display: inline-block;">
-                <div class="section_profile_box" style="margin-top: 50px; ">
-                    <img class="section_profile_img" src="/static/images/default_profile.png">
-                </div> 
-                <div style="margin-top: 15px; margin-bottom: 50px;">
-                    <input id="profile" type="file" multiple style="width: 200px;">      
+            <div id="profile_edit_box">
+                <div >
+                    <div class="profile_section" style="display: inline-block;">
+                        <div class="section_profile_box" style="margin-top: 50px; ">
+                            <img class="section_profile_img" id="profile_img" src="/static/images/default_profile.png" onerror="this.src='/static/images/default_profile.png'">
+                        </div> 
+                        <div style="margin-top: 15px; margin-bottom: 50px;">
+                            <input id="profile" type="file" multiple style="width: 200px;">      
+                        </div>
+                        <div class="textbox" style="text-align: left; ">
+                            <p type="text" class="form-control" name="username" id="username" style="line-height: 43px; background-color: #A7A7A7; border-color: #A7A7A7;"></p>
+                        </div>
+                        <div class="textbox">
+                            <input type="text" class="form-control" name="fullname" id="fullname" placeholder="이름">
+                        </div>
+                        
+                        <div class="textbox" >
+                            <input type="text" class="form-control" name="email" id="email" placeholder="이메일">
+                        </div>
+                        <button type="button" class="btn_profile_cancel btn btn-secondary" style="background-color:#121212; color: #ffff;" >Cancel</button>
+                        <button type="button" class="btn_profile_save btn btn-secondary" style=" margin-left:15px;" id="savebutton"   >Save</button>
+                    </div>
                 </div>
-                <div class="textbox">
-                    <input type="text" class="form-control" placeholder="이름">
-                </div>
-                <div class="textbox" >
-                    <input type="text" class="form-control" placeholder="아이디">
-                </div>
-                <div class="textbox" >
-                    <input type="text" class="form-control" placeholder="이메일">
-                </div>
-                <button type="button" class="btn_profile_cancel btn btn-secondary" style="background-color:#121212; color: #ffff;" >Cancel</button>
-                <button type="button" class="btn_profile_save btn btn-secondary" style=" margin-left:15px;"  >Save</button>
             </div>
+            
+            
         </div>
     </div>
     <footer>
 
     </footer>
     <!-- JS 파일 -->
+    <script src="static/js/profile_edit.js"></script>
 </body>
 </html>

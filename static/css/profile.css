@@ -43,6 +43,24 @@
     font-weight: 700;
     color: #000;
 }
+
+
+
+.profile_detail_card #profile_btn_box > a,.profile_detail_card #profile_btn_box > a:hover{
+    background-color: #1ED760;
+    margin-left: 16px;
+    font-weight: 700;
+    color: #000;
+    min-width: 105px;
+    border: solid 2px #1ED760;
+}
+.profile_detail_card #profile_btn_box > a.btn_follow_remove,.profile_detail_card #profile_btn_box > a.btn_follow_remove:hover{
+    background-color: transparent;
+    margin-left: 16px;
+    font-weight: 700;
+    color: #fff;
+    border: solid 2px #fff;
+}
 /* section_playlist */
 .section_playlist .section_header{
     position: relative;
