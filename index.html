@@ -36,6 +36,36 @@
                     <div class="navbar_logo">
                         <a href="/">Na-dle</a>
                     </div>
+                    <div class="navbar_nav">
+                        <ul class="navbar_menu">
+                            <li class="navbar_item">
+                                <a href="/music_list.html">
+                                    All Music
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <a href="/profile.html">
+                                    My Profile
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <a href="#" onclick="handleLogout()">
+                                    Sign out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <header class="header_sticky">
+        <div class="container">
+            <nav>
+                <div class="flex">
+                    <div class="navbar_logo">
+                        <a href="/">Na-dle</a>
+                    </div>
                     <div class="navbar_search">
                         <ul>
                             <li class="navbar_item">
@@ -53,17 +83,14 @@
                                 </a>
                             </li>
                             <li class="navbar_item">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <div class="my_profile">
-                                            <img src="/static/images/default_profile.png" alt="프로필">
-                                        </div>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <a class="dropdown-item" href='#'>내 프로필</a>
-                                        <a class="dropdown-item" href='#' onclick="handleLogout()">로그아웃</a>
-                                    </ul>
-                                </div>
+                                <a href="/profile.html">
+                                    My Profile
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <a href="#" onclick="handleLogout()">
+                                    Sign out
+                                </a>
                             </li>
                         </ul>
                     </div>

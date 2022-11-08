@@ -28,6 +28,7 @@ async function handleSignin() {
         if (response.ok) {
             localStorage.setItem("access", response_json.access);
             localStorage.setItem("refresh", response_json.refresh);
+            localStorage.setItem("username", username);
 
             const base64Url = response_json.access.split(".")[1];
             const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
