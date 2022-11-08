@@ -13,7 +13,9 @@ function getParams(params){
 async function handleMock() {
     
     url_username = getParams("username");
+    is_me = false;
     if (url_username == undefined){
+        is_me = true;
         url_username = localStorage.getItem("username");
     }
 
@@ -36,10 +38,11 @@ async function handleMock() {
         let user = response_json
         let user_music_review = response_json.my_reviews
 
+        
 
+        // 개인프로필
         let profile_user = document.getElementById("profile_user")
         profile_user.innerHTML = '';
-        // console.log(profile_user)
         let new_user_profile = document.createElement('div');
         new_user_profile.className = 'sec section_profile mt-5';
         new_user_profile.innerHTML = `
@@ -53,14 +56,16 @@ async function handleMock() {
             <div class="profile_content">
                 <div class="profile_username flex">
                     <span class="username">${user['username']}</span>
-                    <a href="/profile_edit.html" class="btn btn_edit_profile">Edit profile</a>
+                    <div id="profile_btn_box">
+                        <a href="/profile_edit.html" class="btn btn_edit_profile">Edit profile</a>
+                    </div>
                 </div>
                 <div class="profile_follow">
                     <button type="button" class="btn_follower" data-bs-toggle="modal" data-bs-target="#followerModal">
-                        <span class="followers">3</span> followers
+                        <span class="follower" id="follower_count">0</span> followers
                     </button>
-                    <button type="button" class="btn_following" data-bs-toggle="modal" data-bs-target="#followingModal">
-                        <span class="following">6</span> following
+                    <button type="button" class="btn_following" data-bs-toggle="modal" data-bs-target="#followModal">
+                        <span class="following" id="follow_count"></span> following
                     </button>
                 </div>
                 <div class="profile_fullname">
@@ -129,10 +134,140 @@ async function handleMock() {
     });
             user_music_reivew_list.append(new_user_music_review)
         });
+
+        // 
+        if(is_me){
+            console.log("edit")
+        }else{
+            current_login_user = JSON.parse(localStorage.getItem("payload"))['user_id']
+            is_follow = response_json['follower'].filter(function(e){ return e.pk==current_login_user;}).length
+            target = document.getElementById("profile_btn_box");
+            console.log(is_follow);
+
+            // target.innerHTML = ""
+            if(is_follow){
+                target.innerHTML = `<a href="#" class="btn btn_follow_remove btnFollow" onclick=handleFollow_other(${user['id']},this)>UnFollow</a>`;
+            }else{
+                target.innerHTML = `<a href="#" class="btn btn_follow_2 btnFollow" onclick=handleFollow_other(${user['id']},this)>Follow</a>`;
+            }            
+        }
+
+
+        // 팔로워, 팔로잉
+        const follower_modal = document.getElementById("followerModal").querySelector(".user_list");
+        const follow_modal = document.getElementById("followModal").querySelector(".user_list");
+        append_user_list(follower_modal,response_json,"follower", user['id']);
+        append_user_list(follow_modal,response_json,"follow", user['id']);
+        
     }).catch(error => {
         console.warn(error.message)
     });
+}
+
+function append_user_list(element,response_json,type,user_id,){
+    dataset = response_json[type]
+    document.getElementById(type+"_count").innerText = dataset.length;
+    element.innerHTML='';
+    dataset.forEach(data => {
+        is_follow = response_json['follow'].filter(function(e){ return e.pk==data['pk'];}).length
+        let new_item = document.createElement('div');
+        new_item.className = `user_${data['username']} user_item profile_list_card`;
+        // new_item.id = type+"_user_"+data['username']
+        new_item.innerHTML = `
+            <div class="card_body">
+                <div class="profile_image">
+                    <img src="${data['profile_image']}">
+                </div>
+                <div class="profile_meta card_meta">
+                    <div class="profile_username">
+                        <a href="/profile.html?username=${data['username']}">
+                            <span class="username">${data['username']}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card_footer">
+                <div class="card_btn">
+                    ${(type=="follow" || is_follow) ? `<a href="#" class="btn_follow_remove btnFollow" onclick=handleFollow(${data['pk']},this)>UnFollow</a>` : `<a href="#" class="btn_follow_2 btnFollow" onclick=handleFollow(${data['pk']},this)>Follow</a>`}
+                </div>
+            </div>
+        `;
+        element.append(new_item);
+    });
+}
+async function handleFollow(follow_user_id,el){
+    const response = await fetch(`http://127.0.0.1:8000/users/follow/${follow_user_id}/`,{
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+            "content-type":"application/json"
+        },
+        method:'POST',
+    }).then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        let type = result['result'];
+        user_item_class = el.closest(".user_item").classList[0];
+        changeFollowBtn(type,el);
+
+        if(type=="follow"){
+            follow_user_item = document.getElementById("followModal").querySelector("."+user_item_class);
+            if(!follow_user_item){
+                user_item = el.closest(".user_item").cloneNode(true);
+                const follow_modal = document.getElementById("followModal").querySelector(".user_list");
+                follow_modal.append(user_item);
+            }else{
+                follow_user_item_btn = follow_user_item.querySelector(".btnFollow");
+                changeFollowBtn(type,follow_user_item_btn);
+            }
+            document.getElementById("follow_count").innerText = Number(document.getElementById("follow_count").innerText)+1;
+        }else{
+            follower_user_item = document.getElementById("followerModal").querySelector("."+user_item_class);
+            follower_user_item_btn = follower_user_item.querySelector(".btnFollow");
+            changeFollowBtn(type,follower_user_item_btn);
+            document.getElementById("follow_count").innerText = Number(document.getElementById("follow_count").innerText)-1;
+        }
+    })
+    .catch(response => {
+        console.warn(response.error)
+    })
+};
 
 
-    
+
+async function handleFollow_other(follow_user_id,el){
+    const response = await fetch(`http://127.0.0.1:8000/users/follow/${follow_user_id}/`,{
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+            "content-type":"application/json"
+        },
+        method:'POST',
+    }).then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        let type = result['result'];
+        changeFollowBtn(type,el);
+    })
+    .catch(response => {
+        console.warn(response.error)
+    })
+};
+
+function changeFollowBtn(type, el){
+    if(type=="follow"){
+        el.classList.add("btn_follow_remove");
+        el.classList.remove("btn_follow_2");
+        el.innerText = (type=="follow"? "UnFollow" : "Follow");
+    }else{
+        el.classList.remove("btn_follow_remove");
+        el.classList.add("btn_follow_2");
+        el.innerText = (type=="follow"? "UnFollow" : "Follow");
+    }
 }

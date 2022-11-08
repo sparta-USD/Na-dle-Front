@@ -84,16 +84,18 @@
                         <div class="profile_content">
                             <div class="profile_username flex">
                                 <span class="username">Username</span>
-                                <a href="#" class="btn btn_edit_profile">Edit profile</a>
+                                <div id="profile_btn_box">
+                                    <a href="#" class="btn btn_edit_profile">Edit profile</a>
+                                </div>
                             </div>
                             <div class="profile_follow">
                                 <button type="button" class="btn_follower" data-bs-toggle="modal"
                                     data-bs-target="#followerModal">
-                                    <span class="followers">3</span> followers
+                                    <span class="follower" id="follower_count">3</span> followers
                                 </button>
                                 <button type="button" class="btn_following" data-bs-toggle="modal"
                                     data-bs-target="#followingModal">
-                                    <span class="following">6</span> following
+                                    <span class="following" id="following_count"></span>>6</span> following
                                 </button>
                             </div>
                             <div class="profile_fullname">
@@ -783,7 +785,7 @@
             </div>
         </div>
     </div>
-    <div class="modal modal-sm fade moreModel" id="followingModal" tabindex="-1" aria-labelledby="followingModalLabel"
+    <div class="modal modal-sm fade moreModel" id="followModal" tabindex="-1" aria-labelledby="followingModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
